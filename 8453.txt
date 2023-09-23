@@ -1,0 +1,12 @@
+func main()
+  // draw to bitmap example
+  bitmap b, 100, 100  
+end
+
+func draw()
+  paint col(255, rnd(255), rnd(255), rnd(255))
+  canvasmap b
+  plot rnd(100), rnd(100)
+  canvasmap screen
+  drawbitmap b, 0, 0, SCREENW, SCREENH 
+end
