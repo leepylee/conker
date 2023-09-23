@@ -4,5 +4,5 @@ end
 func draw()
   style FILL
   paint col(255, rnd(255), rnd(255), rnd(255))
-  circle MIDX, MIDY, rnd(900)
+  circle MIDX, MIDY, rnd(500)
 end
