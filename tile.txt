@@ -30,8 +30,8 @@ func main()
   num tileh = spriteh * scaley
   num tilew = spritew * scalex
 
-  num screenw = roundup(SCREENW / tilew)
-  num screenh = roundup(SCREENH / tileh)
+  num screenw = roundup(SCREENW / tilew) + 1
+  num screenh = roundup(SCREENH / tileh) + 1
 
   num pixelx 
   num pixely
@@ -56,7 +56,7 @@ func draw()
     ty++
   end
   pixelx++
-  if pixelx > spritew
+  if pixelx >= spritew
     portalx++
     pixelx = 0
   end
