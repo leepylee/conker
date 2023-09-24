@@ -1,6 +1,10 @@
 func main()
   num[] sprites
-  for x to 10
+
+num worldw = 100
+num worldh = 30
+
+for x to 10
     bitmap b, 16, 16
     canvasmap b
     paint 255, rnd(256), rnd(256), rnd(256)
@@ -9,36 +13,35 @@ func main()
     add sprites, b
   end
 
-  num worldx = 10
-  num worldy = 10
-  num screenwidth = 5
-  num screenheight = 5
 
   num[] tiles
-  for y to worldy
-    for x to worldx
+  for y to worldh
+    for x to worldw
       add tiles, sprites[rnd(10)]
     end
   end
 
-  num tilex // screen portal
-  num tiley
+  num portalx 
+  num portaly
 
   num tileh = 100
   num tilew = 100
+
+  num screenw = roundup(SCREENW / tilew)
+  num screenh = roundup(SCREENH / tileh)
 
   num pixelx 
   num pixely
 end
 
 func draw()
-  num ty = tiley
+  num ty = portaly
   num sy = 0
-  while ty < worldY and sy < screenheight
-    num tx = tilex
+  while ty < worldh and sy < screenh
+    num tx = portalx
     num sx = 0
-    while tx < worldY and sx < screenwidth
-	    num b = tiles[tx + ty * worldx]
+    while tx < worldw and sx < screenw
+	    num b = tiles[tx + ty * worldw]
        drawbitmap b, sx * tilew - pixelx, sy * tileh - pixely, tilew, tileh
       sx++
       tx++
@@ -48,7 +51,7 @@ func draw()
   end
   pixelx++
   if pixelx > tilew
-    tilex++
+    portalx++
     pixelx = 0
   end    
 end
