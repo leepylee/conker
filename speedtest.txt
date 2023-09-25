@@ -5,7 +5,7 @@ func main()
   num listItem
   num pixlen
   num pathQty
-  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Path Groups', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
+  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Path Contents', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
   if button == 1
     stop
   end
@@ -20,7 +20,16 @@ func main()
   // path
   num p
   if listItem == 4
-    setpath()
+    str[] elements
+    for i to pathQty
+      num x = rnd(SCREENW)
+      num y = rnd(SCREENH)
+      format s, 'R{0} {1} {2} {3} 0', x, y, x + pixlen, y + pixlen
+      add elements, s
+    end
+    str sp = join(elements, ' ')
+    path p1, sp
+    p = p1
   end
 
   // fps
@@ -30,45 +39,35 @@ func main()
     
 end
 
-func setpath()
-  str[] elements
-  for i to qty
-    num x = rnd(SCREENW)
-    num y = rnd(SCREENH)
-    format s, 'R{0} {1} {2} {3} 0', x, y, x + pixlen, y + pixlen
-    add elements, s
-  end
-  str sp = join(elements, ' ')
-  path p1, sp
-  p = p1
-end
-
 func draw()
   style FILL
-  if listItem == 4
-    for i to pathQty
+  for i to qty
+    paint 255, rnd(256), rnd(256), rnd(256)
+    num x = rnd(SCREENW)
+    num y = rnd(SCREENH)
+    if listItem == 0
+      circle x, y, pixlen
+    else if listItem == 1
+      rect x, y, x + pixlen, y + pixlen
+    else if listItem == 2
+      line x, y, x + pixlen, y + pixlen
+    else if listItem == 3
+      drawbitmap b, x, y
+    else if listItem == 4
       drawpath p, i, i
-    end
-  end 
+    end 
+  end
 
   // fps
   frame++
   num timeNow = now()
   num fps = 1000 / (timeNow - timeOld)
   totalTime += fps
-  if frame > 3
+  if frame > 10
     textsize 50
     paint RED
     num avg = round(totalTime/frame)
     text MIDX, MIDY, avg + ' ' + qty
-    if avg < 50 and qty > 2
-      qty = qty * 99 / 100
-      totalTime = 3 * avg
-      frame = 3
-      if listItem == 4
-        setpath()
-      end
-    end
   end
   timeOld = timeNow
 end  
