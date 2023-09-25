@@ -59,8 +59,10 @@ func draw()
     paint RED
     num avg = round(totalTime/frame)
     text MIDX, MIDY, avg + ' ' + qty
-    if avg < 50 and qty > 1
-      qty--
+    if avg < 50 and qty > 2
+      qty = qty * 100 / 99
+      totalTime = 0
+      frame = 0
     end
   end
   timeOld = timeNow
