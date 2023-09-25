@@ -37,7 +37,7 @@ func main()
   num timeOld = now()
   num frame
   num totalTime
-  num p
+  
   
 end
 
@@ -51,12 +51,12 @@ func draw()
 
   // fps
   frame++
-  num timeNew = now()
+  num timeNow = now()
   num fps = 1000 / (timeNow - timeOld)
   totalTime += fps
   if frames > 100
     textsize 50
     paint RED
-    text, MIDX, MIDY, string(round(totalTime/frames))
+    text MIDX, MIDY, string(round(totalTime/frames))
   end
 end  
