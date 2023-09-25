@@ -54,7 +54,7 @@ func draw()
   num timeNow = now()
   num fps = 1000 / (timeNow - timeOld)
   totalTime += fps
-  if frame > 100
+  if frame > 10
     textsize 50
     paint RED
     num avg = round(totalTime/frame)
@@ -63,4 +63,5 @@ func draw()
       qty--
     end
   end
+  timeOld = timeNow
 end  
