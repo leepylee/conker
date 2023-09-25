@@ -5,7 +5,7 @@ func main()
   num listItem
   num pixlen
   num pathQty
-  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Path Contents', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
+  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Path Contents / Bitmap scale', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
   if button == 1
     stop
   end
@@ -52,7 +52,7 @@ func draw()
     else if listItem == 2
       line x, y, x + pixlen, y + pixlen
     else if listItem == 3
-      drawbitmap b, x, y
+      drawbitmap b, x, y, 16 * pathQty, 16 * pathQty
     else if listItem == 4
       drawpath p, i, i
     end 
