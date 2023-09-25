@@ -5,7 +5,7 @@ func main()
   num listItem
   num pixlen
   num pathQty
-  dialog 'Quantity', qty, 'Pixel length, pixlen', 'Path Groups', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
+  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Path Groups', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
   if button == 1
     stop
   end
@@ -54,9 +54,13 @@ func draw()
   num timeNow = now()
   num fps = 1000 / (timeNow - timeOld)
   totalTime += fps
-  if frames > 100
+  if frame > 100
     textsize 50
     paint RED
-    text MIDX, MIDY, string(round(totalTime/frames))
+    num avg = round(totalTime/frame)
+    text MIDX, MIDY, avg + ' ' + qty
+    if avg < 50 and qty > 1
+      qty--
+    end
   end
 end  
