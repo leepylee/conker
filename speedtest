@@ -4,7 +4,8 @@ func main()
   num button
   num listItem
   num pixlen
-  dialog 'Quantity', qty, 'Pixel length, pixlen, 'Path Groups', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
+  num pathQty
+  dialog 'Quantity', qty, 'Pixel length, pixlen', 'Path Groups', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Paths', button, 'OK;Cancel'
   if button == 1
     stop
   end
@@ -42,9 +43,9 @@ end
 
 func draw()
   style FILL
-  if (listItem == 4)
+  if listItem == 4
     for i to pathQty
-      drawpath p, 0, 0
+      drawpath p, i, i
     end
   end
 
@@ -53,7 +54,7 @@ func draw()
   num timeNew = now()
   num fps = 1000 / (timeNow - timeOld)
   totalTime += fps
-  if (frames > 100)
+  if frames > 100
     textsize 50
     paint RED
     text, MIDX, MIDY, string(round(totalTime/frames))
