@@ -23,7 +23,7 @@ func main()
   end
 
   // path
-  style FILL
+  style FILLSTROKE
   num p
   if insidePath
     str[] elements
@@ -34,7 +34,7 @@ func main()
       num y2 = y + pixlen
       str form
       if listItem == 0
-        form = 'C{0} {1} {2}'
+        form = 'C{0} {1} {2} 0'
         x2 = pixlen
       else if listItem == 1
         form = 'R{0} {1} {2} {3} 0'
