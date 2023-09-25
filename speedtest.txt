@@ -19,26 +19,28 @@ func main()
 
   // path
   num p
-  str sp
   if listItem == 4
-    str[] elements
-    for i to qty
-      num x = rnd(SCREENW)
-      num y = rnd(SCREENH)
-      format s, 'R{0} {1} {2} {3} 0', x, y, x + pixlen, y + pixlen
-      add elements, s
-    end
-    str sp = join(elements, ' ')
-    path p1, sp
-    p = p1
+    setpath()
   end
 
   // fps
   num timeOld = now()
   num frame
   num totalTime
-  
-  
+    
+end
+
+func setpath()
+  str[] elements
+  for i to qty
+    num x = rnd(SCREENW)
+    num y = rnd(SCREENH)
+    format s, 'R{0} {1} {2} {3} 0', x, y, x + pixlen, y + pixlen
+    add elements, s
+  end
+  str sp = join(elements, ' ')
+  path p1, sp
+  p = p1
 end
 
 func draw()
@@ -63,6 +65,9 @@ func draw()
       qty = qty * 99 / 100
       totalTime = 3 * avg
       frame = 3
+      if listItem == 4
+        setpath()
+      end
     end
   end
   timeOld = timeNow
