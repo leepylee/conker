@@ -47,7 +47,7 @@ func draw()
     for i to pathQty
       drawpath p, i, i
     end
-  end
+  end 
 
   // fps
   frame++
