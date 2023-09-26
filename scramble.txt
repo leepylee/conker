@@ -29,7 +29,7 @@ end
 
 func draw()
   style FILL
-  drawshape s, x, 0
+  drawshape s, -x, 0
   x++
 
   // fps
