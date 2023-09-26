@@ -5,7 +5,7 @@ func main()
   num listItem
   num pixlen
   num pathQty
-  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Paths', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps', button, 'OK;Cancel'
+  dialog 'Graphic Speed Test', 'Quantity', qty, 'Pixel length', pixlen, 'Paths', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps', button, 'OK;Cancel'
   if button == 1
     stop
   end
@@ -54,7 +54,7 @@ end
 func draw()
   style FILL
   if pathQty > 0
-    for i in pathQty
+    for i to pathQty
       drawpath p, i*5, i*5
     end
   else
