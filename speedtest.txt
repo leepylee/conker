@@ -5,8 +5,7 @@ func main()
   num listItem
   num pixlen
   num pathQty
-  bool insidePath
-  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Path Contents / Bitmap scale', pathQty, 'Inside Path', insidePath, listItem, 'Circles;Rectangles;Lines;Bitmaps', button, 'OK;Cancel'
+  dialog 'Quantity', qty, 'Pixel length', pixlen, 'Paths', pathQty, listItem, 'Circles;Rectangles;Lines;Bitmaps', button, 'OK;Cancel'
   if button == 1
     stop
   end
@@ -18,16 +17,12 @@ func main()
   line 0,0,15,15
   line 0,15,15,0
 
-  if listItem == 3
-    insidePath = false
-  end
-
   // path
   style FILLSTROKE
   num p
-  if insidePath
+  if pathQty > 0
     str[] elements
-    for i to pathQty
+    for i to qty
       num x = rnd(SCREENW)
       num y = rnd(SCREENH)
       num x2 = x + pixlen
@@ -58,21 +53,25 @@ end
 
 func draw()
   style FILL
-  for i to qty
-    paint 255, rnd(256), rnd(256), rnd(256)
-    num x = rnd(SCREENW)
-    num y = rnd(SCREENH)
-    if insidePath
-      drawpath p, i, i
-    else if listItem == 0
-      circle x, y, pixlen
-    else if listItem == 1
-      rect x, y, x + pixlen, y + pixlen
-    else if listItem == 2
-      line x, y, x + pixlen, y + pixlen
-    else if listItem == 3
-      drawbitmap b, x, y, 16 * pathQty, 16 * pathQty
-    end 
+  if pathQty > 0
+    for i in pathQty
+      drawpath p, i*5, i*5
+    end
+  else
+    for i to qty
+      paint 255, rnd(256), rnd(256), rnd(256)
+      num x = rnd(SCREENW)
+      num y = rnd(SCREENH)
+      if listItem == 0
+        circle x, y, pixlen
+      else if listItem == 1
+        rect x, y, x + pixlen, y + pixlen
+      else if listItem == 2
+        line x, y, x + pixlen, y + pixlen
+      else if listItem == 3
+        drawbitmap b, x, y, 16 * pixlen, 16 * pixlen
+      end 
+    end
   end
 
   // fps
