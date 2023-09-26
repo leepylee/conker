@@ -1,6 +1,6 @@
 
 func main()
-  num heights[]
+  num[] heights
   num height = 0
   for x to 4000
     if rnd(10) > 4 and height < 500
@@ -25,7 +25,7 @@ func draw()
   paint PINK
   for i to 300
     num h = heights[i + x]
-    rect i * 5, SCREENH - h * 5, (i * 5) + 4, SCREENH + pixlen, SCREENH
+    rect i * 5, SCREENH - h * 5, (i * 5) + 4, SCREENH
   end
   x++
 
