@@ -24,10 +24,10 @@ func draw()
   style FILL
   paint PINK
   for i to 300
-    num pos = i + x
-    num h = heights[pos]
+    num h = heights[i + x]
     rect i * 5, SCREENH - h * 5, (i * 5) + 4, SCREENH + pixlen, SCREENH
   end
+  x++
 
   // fps
   frame++
