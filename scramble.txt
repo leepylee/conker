@@ -3,9 +3,9 @@ func main()
   str[] shapes
   num height = 0  
   for x to 300
-    if rnd(10) > 4 and height < 500
+    if (x < 30 or rnd(10) > 4) and height < 300
       height++
-    else if height > 2
+    else if height > 30
       height--
     end
     num top = SCREENH - height * 5
