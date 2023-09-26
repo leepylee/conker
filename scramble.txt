@@ -1,15 +1,20 @@
 
 func main()
-  num[] heights
-  num height = 0
-  for x to 4000
+  str[] shapes
+  num height = 0  
+  for x to 300
     if rnd(10) > 4 and height < 500
       height++
     else if height > 2
       height--
     end
-    add heights, height
+    num top = SCREENH - height * 5;
+    num pos = x * 5
+    format sh, 'R{0} {1} {2} {3}', pos, top, pos + 5, SCREENH
+    add shapes, sh
   end
+  str shapesAll = join(shapes ' ')
+  shape s, shapesAll
   console false
 
   num x = 0
@@ -22,15 +27,7 @@ end
 
 func draw()
   style FILL
-  for i to 300
-    paint RED    
-    num h = heights[i + x]
-    num pos = i * 5
-    num top = SCREENH - h * 5
-    rect pos, top, pos + 5, SCREENH
-    paint WHITE
-    rect i * 5, top, pos + 5, top - 5
-  end
+  drawshape s, x, 0
   x++
 
   // fps
