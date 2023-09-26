@@ -2,7 +2,7 @@
 func main()
   str[] shapes
   num height = 0  
-  for x to 300
+  for x to 3000
     if (x < 30 or rnd(10) > 4) and height < 300
       height++
     else if height > 30
