@@ -22,10 +22,14 @@ end
 
 func draw()
   style FILL
-  paint PINK
   for i to 300
+    paint RED    
     num h = heights[i + x]
-    rect i * 5, SCREENH - h * 5, (i * 5) + 4, SCREENH
+    num pos = i * 5
+    num top = SCREENH - h * 5
+    rect pos, top, pos + 5, SCREENH
+    paint WHITE
+    rect i * 5, top, pos + 5, top - 5
   end
   x++
 
@@ -38,7 +42,7 @@ func draw()
     textsize 50
     paint RED
     num avg = round(totalTime/frame)
-    text MIDX, MIDY, avg + ' ' + qty
+    text MIDX, MIDY, string(avg)
   end
   timeOld = timeNow
 end  
