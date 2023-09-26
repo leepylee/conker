@@ -8,10 +8,12 @@ func main()
     else if height > 2
       height--
     end
-    num top = SCREENH - height * 5;
+    num top = SCREENH - height * 5
     num pos = x * 5
-    format sh, 'R{0} {1} {2} {3}', pos, top, pos + 5, SCREENH
+    format sh, 'K{0} R{1} {2} {3} {4}', RED, pos, top, pos + 5, SCREENH
     add shapes, sh
+    format sh2, 'K{0} R{1} {2} {3} {4}', WHITE, pos, top, pos + 5, top - 5
+    add shapes, sh2
   end
   str shapesAll = join(shapes ' ')
   shape s, shapesAll
