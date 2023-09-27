@@ -101,6 +101,9 @@ func draw()
     setupPath()
     setupShape()
     button = -1
+    timeOld = now()
+    frame = 0
+    totalTime = 0
   end
   
   if inkey(0) != ''
