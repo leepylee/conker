@@ -149,6 +149,10 @@ func draw()
   // fps
   frame++
   num timeNow = now()
+  num diff = timeNow - timeOld
+  if diff == 0
+    diff = 1
+  end
   num fps = 1000 / (timeNow - timeOld)
   totalTime += fps
   if frame > 10
