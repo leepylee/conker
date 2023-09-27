@@ -5,7 +5,8 @@ func main()
   num listItem
   num pixlen
   num pathQty
-  dialog 'Graphic Speed Test', 'Quantity', qty, 'Pixel length', pixlen, 'Paths', pathQty, 'Shapes', shapeQty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Triangles', button, 'OK;Cancel'
+  bool isMoving
+  dialog 'Graphic Speed Test', 'Quantity', qty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Triangles', 'Pixel length', pixlen, 'Paths', pathQty, 'Shapes', shapeQty, 'Moving Path/Shape', isMoving, 'OK;Cancel'
   if button == 1
     stop
   end
@@ -74,6 +75,8 @@ func main()
     s = s1
   end
 
+  num px
+
   // fps
   num timeOld = now()
   num frame
@@ -82,16 +85,20 @@ func main()
 end
 
 func draw()
+  if isMoving
+    px++
+  end
+
   style FILL
   if pathQty > 0
     for i to pathQty
-      drawpath p, i*5, i*5
+      drawpath p, px + i*20, i*20
     end
   end
 
   if shapeQty > 0
     for i to shapeQty
-      drawshape s, i, i*50
+      drawshape s, px - i*20, i*20
     end
   end
 
