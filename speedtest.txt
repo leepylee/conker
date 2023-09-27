@@ -69,7 +69,7 @@ end
 func setupShape()
   if shapeQty > 0
     str[] elements
-    for i to shapeQty
+    for i to qty
       num x = rnd(SCREENW)
       num y = rnd(SCREENH)
       num x2 = x + pixlen
