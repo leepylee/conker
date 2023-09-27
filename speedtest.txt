@@ -158,5 +158,6 @@ func draw()
 end  
 
 func doDialog()
+  px = 0
   dialog 'Graphic Speed Test', 'Quantity', qty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Triangles', 'Pixel length', pixlen, 'Paths', pathQty, 'Shapes', shapeQty, 'Moving Path/Shape', isMoving, button, 'OK;Cancel'
 end
