@@ -7,7 +7,7 @@ func main()
   num pathQty
   num shapeQty
   bool isMoving
-  dialog 'Graphic Speed Test', 'Quantity', qty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Triangles', 'Pixel length', pixlen, 'Paths', pathQty, 'Shapes', shapeQty, 'Moving Path/Shape', isMoving, listItem, 'OK;Cancel'
+  dialog 'Graphic Speed Test', 'Quantity', qty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Triangles', 'Pixel length', pixlen, 'Paths', pathQty, 'Shapes', shapeQty, 'Moving Path/Shape', isMoving, button, 'OK;Cancel'
   if button == 1
     stop
   end
