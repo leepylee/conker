@@ -152,7 +152,7 @@ func draw()
     textsize 50
     paint RED
     num avg = round(totalTime/frame)
-    text MIDX, MIDY, avg + ' ' + qty
+    text 200, MIDY, 'fps ' + avg + ' qty ' + qty + ' item ' + listItem + ' length ' + pixlen + ' paths ' + pathQty + ' shapes ' + shapeQty + ' moving ' + isMoving
   end
   timeOld = timeNow
 end  
