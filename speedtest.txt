@@ -7,7 +7,10 @@ func main()
   num pathQty
   num shapeQty
   bool isMoving
-  doDialog();
+  doDialog()
+  if button == 1
+    stop
+  end
   console false
 
   // bitmap
@@ -17,9 +20,26 @@ func main()
   line 0,15,15,0
 
   // path
-  style FILLSTROKE
   num p
+  setupPath()
+
+  num s
+  setupShape()
+
+  num px
+
+  button = -1 // stop setup
+
+  // fps
+  num timeOld = now()
+  num frame
+  num totalTime
+    
+end
+
+func setupPath()
   if pathQty > 0
+    style FILLSTROKE
     str[] elements
     for i to qty
       num x = rnd(SCREENW)
@@ -44,9 +64,9 @@ func main()
     path p1, sp
     p = p1
   end
+end
 
-  // shape
-  num s
+func setupShape()
   if shapeQty > 0
     str[] elements
     for i to shapeQty
@@ -72,22 +92,17 @@ func main()
     shape s1, sp
     s = s1
   end
-
-  num px
-  bool running = true
-
-  // fps
-  num timeOld = now()
-  num frame
-  num totalTime
-    
 end
 
 func draw()
-  if not running
-    return
+  if button == 1
+    stop
+  else if button == 0
+    setupPath()
+    setupShape()
+    button = -1
   end
-
+  
   if inkey(0) != ''
     doDialog()
   end
@@ -143,10 +158,5 @@ func draw()
 end  
 
 func doDialog()
-  running = false
   dialog 'Graphic Speed Test', 'Quantity', qty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Triangles', 'Pixel length', pixlen, 'Paths', pathQty, 'Shapes', shapeQty, 'Moving Path/Shape', isMoving, button, 'OK;Cancel'
-  if button == 1
-    stop
-  end
-  running = true
 end
