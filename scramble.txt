@@ -33,7 +33,7 @@ func num fuelBitmap()
   str s = '    ggggggg    ' + _
           '  ggggggggggg  ' + _
           ' gppprgpppprgg ' + _
-          'ggppgrgrppgrggg' + _
+          'ggpggrgrpggrggg' + _
           'ggppgrgrppgrggg' + _
           'ggpggrgrpggrggg' + _
           ' gpggrrrppprrg ' + _
@@ -48,7 +48,8 @@ func num fuelBitmap()
           ' ppp       ppp '
   dict num pallete
   put pallete, 'g', GREEN
-  put pallete, 'p', PINK
+  put pallete, 'p', DEEPPINK
+  put pallete, 'r', RED
   picture b, s, 15, pallete
   return b
 end
@@ -58,7 +59,7 @@ func draw()
   drawshape s, -x, 0
   x+=5
 
-  drawbitmap b, 500, 500
+  drawbitmap b, 500, 500, 15 * 5, 16 * 5
 
   // fps
   frame++
