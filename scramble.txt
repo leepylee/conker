@@ -1,14 +1,32 @@
 
 func main()
   str[] shapes
-  num height = 0  
+  num[] fuels
+  num[] heights
+  num height = 0
+  num nextFuel = 100 + rnd(100)
   for x to 3000
-    if (x < 30 or rnd(10) > 4) and height < 300
+    nextFuel--
+    if nextFuel < 0
+      if nextFuel == 0
+        add fuels, x
+      end
+      num updown = nextFuel % 8
+      if updown == 0
+        height++
+      else if updown == 4
+        height--
+      end
+      if nextFuel == -16
+        nextFuel = 100 + rnd(100)
+      end
+    else if (x < 30 or rnd(10) > 4) and height < 300
       height++
     else if height > 30
       height--
     end
     num top = SCREENH - height * 5
+    add heights, top - 5
     num pos = x * 5
     format sh, 'K{0} R{1} {2} {3} {4}', RED, pos, top, pos + 5, SCREENH
     add shapes, sh
@@ -22,6 +40,7 @@ func main()
   num b = fuelBitmap()
 
   num x = 0
+  num fuelsIndex = 0
 
   // fps
   num timeOld = now()
@@ -54,6 +73,8 @@ func num fuelBitmap()
   return b
 end
 
+func 
+
 func draw()
   style FILL
   drawshape s, -x, 0
@@ -61,6 +82,22 @@ func draw()
 
   if x > 2900 * 5
     x = 0
+  end
+
+  if fuelsIndex >= 0
+    num i = fuelsIndex
+    while i < lenth(fuels)
+      num fuelx = fuels[i]
+      num diff = fuelx - x
+      if diff < -16
+        fuelIndex++
+      else if diff < 400
+        drawbitmap b, diff * 5, heights[i], 80, 80
+      else
+        break
+      end
+      i++
+    end
   end
 
   drawbitmap b, 500, 500, 15 * 5, 16 * 5
