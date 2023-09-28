@@ -87,34 +87,40 @@ end
 
 func draw()
   style FILL
-  drawshape s, -x, 0
-  x+=5
 
+  // draw land
+  drawshape s, -x, 0
+
+  // draw fuel dumps
+  num i = fuelsIndex
+  while i < length(fuels)
+    num fuelx = fuels[i]
+    num diff = fuelx - hindex
+    if diff < -16
+      fuelsIndex++
+    else if diff < 400
+      drawbitmap b, diff * 5, heights[fuelx] - 80, 75, 80
+    else
+      break
+    end
+    i++
+  end
+
+  // move camera
+  x+=5
+  hindex++
+
+  // loop world 
   if x > 2600 * 5
     x = 0
     fuelsIndex = 0
     hindex = 0
   end
 
-  if fuelsIndex >= 0
-    num i = fuelsIndex
-    while i < length(fuels)
-      num fuelx = fuels[i]
-      num diff = fuelx - hindex
-      if diff < -16
-        fuelsIndex++
-      else if diff < 400
-        drawbitmap b, diff * 5, heights[fuelx] - 80, 75, 80
-      else
-        break
-      end
-      i++
-    end
-  end
+  drawFps()
+end  
 
-  hindex++
-
-  // fps
+func drawFps()
   frame++
   num timeNow = now()
   num dt = timeNow - timeOld
@@ -130,4 +136,4 @@ func draw()
     text MIDX, MIDY, string(avg)
   end
   timeOld = timeNow
-end  
+end
