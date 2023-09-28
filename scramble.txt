@@ -59,7 +59,7 @@ func draw()
   drawshape s, -x, 0
   x+=5
 
-  if x > 2900
+  if x > 2900 * 5
     x = 0
   end
 
