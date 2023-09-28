@@ -17,7 +17,7 @@ func main()
       else if updown == 4
         height--
       end
-      if nextFuel == -16
+      if nextFuel == -15
         nextFuel = 100 + rnd(100)
         if rnd(2) == 0
           nextFuel = 1
