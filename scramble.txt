@@ -2,9 +2,9 @@
 func main()
   str[] shapes
   num[] fuels
-  num[] heights
+  num[] heights = calcLand()
 
-  num s = calcLand() // shape for land
+  num s = landShape() // shape for land
   console false
 
   num b = fuelBitmap()
@@ -19,7 +19,8 @@ func main()
   num totalTime    
 end
 
-func num calcLand()
+func num[] calcLand()
+  num h[]
   num height = 0
   num nextFuel = 100 + rnd(100)
   for x to 3000
@@ -48,7 +49,14 @@ func num calcLand()
       height--
     end
     num top = SCREENH - height * 5
-    add heights, top - 5 // store for drawing height of dumps later
+    add h, top
+  end
+  return h
+end
+
+func num landShape()
+  for x to len(heights)
+    num top = heights(x]
     num pos = x * 5
     format sh, 'K{0} R{1} {2} {3} {4}', RED, pos, top, pos + 5, SCREENH
     add shapes, sh
@@ -99,9 +107,9 @@ func draw()
     if diff < -16
       fuelsIndex++
     else if diff < 400
-      drawbitmap b, diff * 5, heights[fuelx] - 80, 75, 80
+      drawbitmap b, diff * 5, heights[fuelx] - 80 -5, 75, 80
     else
-      break
+      break 
     end
     i++
   end
