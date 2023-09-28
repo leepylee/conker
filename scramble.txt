@@ -27,6 +27,30 @@ func main()
   num totalTime    
 end
 
+func num fuelBitmap()
+  str s = '    ggggggg    ' + _
+          '  ggggggggggg  ' + _
+          ' gppprgpppprgg ' + _
+          'ggppgrgrppgrggg' + _
+          'ggppgrgrppgrggg' + _
+          'ggpggrgrpggrggg' + _
+          ' gpggrrrppprrg ' + _
+          '  ggggggggggg  ' + _
+          '    ggggggg    ' + _
+          '     ppppp     ' + _
+          '    p     p    ' + _
+          '    ppppppp    ' + _
+          '   p       p   ' + _
+          '   ppppppppp   ' + _
+          '  p         p  ' + _
+          ' ppp       ppp '
+  dict num pallette
+  put pallete, 'g', GREEN
+  put pallete, 'p', PINK
+  picture b, s, pallete
+  return b
+end
+
 func draw()
   style FILL
   drawshape s, -x, 0
