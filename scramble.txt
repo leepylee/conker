@@ -19,6 +19,8 @@ func main()
   shape s, shapesAll
   console false
 
+  num b = fuelBitmap()
+
   num x = 0
 
   // fps
@@ -44,10 +46,10 @@ func num fuelBitmap()
           '   ppppppppp   ' + _
           '  p         p  ' + _
           ' ppp       ppp '
-  dict num pallette
+  dict num pallete
   put pallete, 'g', GREEN
   put pallete, 'p', PINK
-  picture b, s, pallete
+  picture b, s, 15, pallete
   return b
 end
 
@@ -55,6 +57,8 @@ func draw()
   style FILL
   drawshape s, -x, 0
   x+=5
+
+  drawbitmap b, 500, 500
 
   // fps
   frame++
