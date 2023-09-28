@@ -59,6 +59,10 @@ func draw()
   drawshape s, -x, 0
   x+=5
 
+  if x > 2900
+    x = 0
+  end
+
   drawbitmap b, 500, 500, 15 * 5, 16 * 5
 
   // fps
