@@ -3,41 +3,8 @@ func main()
   str[] shapes
   num[] fuels
   num[] heights
-  num height = 0
-  num nextFuel = 100 + rnd(100)
-  for x to 3000
-    nextFuel--
-    if nextFuel <= 0
-      if nextFuel == 0
-        add fuels, x
-      end
-      num updown = nextFuel - (int(nextFuel / 8)*)
-      if updown == 0
-        height++
-      else if updown == 4
-        height--
-      end
-      if nextFuel == -15
-        nextFuel = 100 + rnd(100)
-        if rnd(2) == 0
-          nextFuel = 1
-        end
-      end
-    else if (x < 30 or rnd(10) > 4) and height < 300
-      height++
-    else if height > 30
-      height--
-    end
-    num top = SCREENH - height * 5
-    add heights, top - 5
-    num pos = x * 5
-    format sh, 'K{0} R{1} {2} {3} {4}', RED, pos, top, pos + 5, SCREENH
-    add shapes, sh
-    format sh2, 'K{0} R{1} {2} {3} {4}', WHITE, pos, top, pos + 5, top - 5
-    add shapes, sh2
-  end
-  str shapesAll = join(shapes ' ')
-  shape s, shapesAll
+
+  num s = calcLand() // shape for land
   console false
 
   num b = fuelBitmap()
@@ -50,6 +17,47 @@ func main()
   num timeOld = now()
   num frame
   num totalTime    
+end
+
+func str calcLand()
+  num height = 0
+  num nextFuel = 100 + rnd(100)
+  for x to 3000
+    // fuel dump calcs
+    nextFuel--
+    if nextFuel <= 0
+      if nextFuel == 0
+        add fuels, x
+      end
+      num updown = nextFuel - (int(nextFuel / 8)*)
+      // gentle flatish surface under fuel dump
+      if updown == 0
+        height++
+      else if updown == 4
+        height--
+      end
+      if nextFuel == -15
+        nextFuel = 100 + rnd(100)
+        if rnd(2) == 0
+          nextFuel = 1 // ocassional have an immediate next fuel dump
+        end
+      end
+    else if (x < 30 or rnd(10) > 4) and height < 300
+      height++
+    else if height > 30
+      height--
+    end
+    num top = SCREENH - height * 5
+    add heights, top - 5 // store for drawing height of dumps later
+    num pos = x * 5
+    format sh, 'K{0} R{1} {2} {3} {4}', RED, pos, top, pos + 5, SCREENH
+    add shapes, sh
+    format sh2, 'K{0} R{1} {2} {3} {4}', WHITE, pos, top, pos + 5, top - 5
+    add shapes, sh2
+  end
+  str shapesAll = join(shapes ' ')
+  shape s, shapesAll
+  return s
 end
 
 func num fuelBitmap()
