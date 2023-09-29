@@ -7,11 +7,11 @@ func draw()
   paint RED
   num ex = MIDX * 0.8
   num ey = MIDY * 0.8
-  circle axis('AXIS_X') * ex + MIDX - 30, axis('AXIS_Y') * ey + MIDY, 20
+  circle axis('AXIS_X') * ex + MIDX - 50, axis('AXIS_Y') * ey + MIDY, 20
   paint GREEN
   circle axis('AXIS_Z') * ex + MIDX, axis('AXIS_RZ') * ey + MIDY, 20
   paint PURPLE
-  circle axis('AXIS_BRAKE') * ex + MIDX + 30, axis('AXIS_GAS') * ey + MIDY, 20
+  circle axis('AXIS_BRAKE') * ex + MIDX + 50, axis('AXIS_GAS') * ey + MIDY, 20
   str s = inkey(0)
   if s != ''
     print s
