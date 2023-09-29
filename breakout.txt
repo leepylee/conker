@@ -9,7 +9,7 @@ func main()
   num batSize = 100
   num halfBat = batSize / 2
   num batThick = 30
-  num halfThick = batThick / 2
+  num halfThick = batThick / 2 
 end
 
 func draw()
