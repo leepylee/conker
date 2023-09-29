@@ -8,7 +8,7 @@ func main()
   num baty2 = 0.9 * SCREENH
   num batSize = 100
   num halfBat = batSize / 2
-  num batThick = 30
+  num batThick = 16
   num halfThick = batThick / 2 
 end
 
@@ -32,7 +32,7 @@ end
 func drawBats()
   style WHITE
   rect x - halfBat, baty1 - halfThick, x + halfBat, baty1 + halfThick
-  rect x - halfBat, baty2 - halfThick, x + halfBat, baty1 + halfThick
+  rect x - halfBat, baty2 - halfThick, x + halfBat, baty2 + halfThick
   rect batx1 - halfThick, y - halfBat, batx1 + halfThick, y + halfBat
   rect batx2 - halfThick, y - halfBat, batx2 + halfThick, y + halfBat
   if x < halfBat
