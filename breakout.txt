@@ -7,15 +7,26 @@ func main()
   num baty1 = 0.1 * SCREENH
   num baty2 = 0.9 * SCREENH
   num batSize = 100
-  num halfBat = batSize / 2
-  num batThick = 16
+  num batThick = 16 
+  num ballThick = 8
+  num wallThick = SCREENH * 0.2
+
+  num ballx = MIDX
+  num bally = MIDY + MIDY / 2
+  num vx = 0.5
+  num vy = 1
+
   num halfThick = batThick / 2 
+  num halfBat = batSize / 2
+  num halfBall = ballThick / 2
 end
 
 func draw()
   style FILL
   batMove()
+  ballMove()
   drawBats()
+  drawBall()
 end
 
 func batMove()
@@ -26,6 +37,21 @@ func batMove()
   end
   if abs(ry) > 0.01
     y += ry * scale
+  end
+end
+
+func ballMove()
+  ballx += vx
+  bally += vy
+  if ballx + halfBall >= batx2 - halfThick
+    vx = -vx
+  else if ballx - halfBall <= batx1 + halfThick
+    vx = -vx
+  end
+  if bally + halfBall >= baty2 - halfThick
+    vy = -vy
+  else if bally - halfBall <= baty1 + halfThick
+    vy = -vy
   end
 end
 
@@ -44,4 +70,9 @@ func drawBats()
   else if y > SCREENH - halfBat
     y = SCREENH - halfBat
   end
+end
+
+func drawBall()
+  style PINK
+  circle ballx, bally, halfBall
 end
