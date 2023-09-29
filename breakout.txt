@@ -1,1 +1,38 @@
+func main()
+  num x = MIDX
+  num y = MIDY
+  num scale = 50
+  num batx1 = 0.05 * SCREENW
+  num batx2 = 0.95 * SCREENW
+  num baty1 = 0.1 * SCREENH
+  num baty2 = 0.9 * SCREENH
+  num batSize = 100
+  num halfBat = batsize / 2
+  num batThick = 30
+  num halfThick = batThick / 2
+end
 
+func draw()
+  style FILL
+  batMove()
+  drawBats()
+end
+
+func batMove()
+  num rx = axis('AXIS_Z')
+  num ry = axis('AXIS_RZ')
+  if abs(rx) > 0.01
+    x += rx * scale
+  end
+  if abs(ry) > 0.01
+    y += ry * scale
+  end
+end
+
+func drawBats()
+  style WHITE
+  rect x - halfBat, baty1 - halfThick, x + halfBat, baty1 + halfThick
+  rect x - halfBat, baty2 - halfThick, x + halfBat, baty1 + halfThick
+  rect batx1 - halfThick, y - halfBat, batx1 + halfThick, y + halfBat
+  rect batx2 - halfThick, y - halfBat, batx2 + halfThick, y + halfBat
+end
