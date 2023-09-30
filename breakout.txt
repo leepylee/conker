@@ -1,11 +1,11 @@
 func main()
   num x = MIDX
   num y = MIDY
-  num scale = 50
-  num batx1 = 0.05 * SCREENW
-  num batx2 = 0.95 * SCREENW
-  num baty1 = 0.1 * SCREENH
-  num baty2 = 0.9 * SCREENH
+  num scale = 10
+  num batx1 = 0.025 * SCREENW
+  num batx2 = 0.975 * SCREENW
+  num baty1 = 0.05 * SCREENH
+  num baty2 = 0.95 * SCREENH
   num batSize = 100
   num batThick = 10 
   num ballThick = 15
@@ -38,6 +38,15 @@ func batMove()
   if abs(ry) > 0.01
     y += ry * scale
   end
+  if x < halfBat
+    x = halfBat
+  else if x > SCREENW - halfBat
+    x = SCREENW - halfBat
+  else if y < halfBat
+    y = halfBat
+  else if y > SCREENH - halfBat
+    y = SCREENH - halfBat
+  end
 end
 
 func ballMove()
@@ -45,7 +54,7 @@ func ballMove()
   bally += vy
   bool onBatY = bally + halfBall >= y - halfBat and bally - halfBall <= y + halfBat
   bool onBatX = ballx + halfBall >= x - halfBat and ballx - halfBall <= x + halfBat
-  if ballx > SCREENW or ballx < 0 or bally < 0 or bally > SCREENH 
+  if ballx > batx2 or ballx < batx1 or bally < baty1 or bally > baty2 
     lostBall()
   else if ballx + halfBall >= batx2 - halfThick and onBatY 
     vx = -vx
@@ -72,15 +81,6 @@ func drawBats()
   rect x - halfBat, baty2 - halfThick, x + halfBat, baty2 + halfThick
   rect batx1 - halfThick, y - halfBat, batx1 + halfThick, y + halfBat
   rect batx2 - halfThick, y - halfBat, batx2 + halfThick, y + halfBat
-  if x < halfBat
-    x = halfBat
-  else if x > SCREENW - halfBat
-    x = SCREENW + halfBat
-  else if y < halfBat
-    y = halfBat
-  else if y > SCREENH - halfBat
-    y = SCREENH - halfBat
-  end
 end
 
 func drawBall()
