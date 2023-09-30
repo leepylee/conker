@@ -1,15 +1,21 @@
 func main()
-  num az = 100
   num oy = 1.5
-  num ratio = oy/az
-  print angle
-  num caz = 1
-  num dy = caz * ratio * 1000
-  print dy
+  num ox = 3
 end
 
-
+func num displacement(num zDiff, num xOrY)
+  num ratio = xOrY / zDiff
+  num disp = ratio * 1000 
+  return disp
+end
 
 func draw()
-
+  paint BLUE
+  strokesize 3
+  plot MIDX, MIDY
+  paint WHITE
+  for zd from 1 to 100 step 10
+    num dispY = displacement(zd, oy)
+    num dispX = displacement(zd, ox)
+    plot MIDX - dispX, MIDY - dispY
 end
