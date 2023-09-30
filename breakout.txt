@@ -43,16 +43,27 @@ end
 func ballMove()
   ballx += vx
   bally += vy
-  if ballx + halfBall >= batx2 - halfThick
+  bool onBatY = bally + halfBall >= y - halfBat and bally - halfBall <= y + halfBat
+  bool onBatX = ballx + halfBall >= x - halfBat and ballx - halfBall <= x + halfBat
+  if ballx > SCREENW or ballx < 0 or bally < 0 or bally > SCREENH 
+    lostBall()
+  else if ballx + halfBall >= batx2 - halfThick and onBatY 
     vx = -vx
-  else if ballx - halfBall <= batx1 + halfThick
+  else if ballx - halfBall <= batx1 + halfThick and onBatY
     vx = -vx
   end
-  if bally + halfBall >= baty2 - halfThick
+  if bally + halfBall >= baty2 - halfThick and onBatX
     vy = -vy
-  else if bally - halfBall <= baty1 + halfThick
+  else if bally - halfBall <= baty1 + halfThick and onBatX
     vy = -vy
   end
+end
+
+func lostBall()
+  ballx = MIDX
+  bally = MIDY + MIDY / 2
+  vx = 1
+  vy = 5
 end
 
 func drawBats()
