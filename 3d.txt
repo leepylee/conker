@@ -12,7 +12,7 @@ func draw()
   paint BLUE
   strokewidth 3
   plot MIDX, MIDY
-  paint WHITE
+  paint WHITE 
   for zd from 1 to 100 step 10 // from 1M to 100M away from camera
     for xd from -5 to 5 // from left to right
       num dispY = displacement(zd, oy)
