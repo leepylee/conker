@@ -2,8 +2,8 @@ func main()
   num x = MIDX
   num y = MIDY
   num scale = 10
-  num batx1 = 0.025 * SCREENW
-  num batx2 = 0.975 * SCREENW
+  num batx1 = 0.04 * SCREENW
+  num batx2 = 0.96 * SCREENW
   num baty1 = 0.05 * SCREENH
   num baty2 = 0.95 * SCREENH
   num batSize = 100
@@ -11,7 +11,7 @@ func main()
   num ballThick = 15
   num wallThick = SCREENH * 0.2
 
-  num ballx = MIDX * 0.4
+  num ballx = MIDX * 0.6
   num bally = MIDY
   num vx = -5
   num vy = 1
@@ -19,6 +19,8 @@ func main()
   num halfThick = batThick / 2 
   num halfBat = batSize / 2
   num halfBall = ballThick / 2
+
+  console false
 end
 
 func draw()
@@ -69,7 +71,7 @@ func ballMove()
 end
 
 func lostBall()
-  ballx = MIDX * 0.4
+  ballx = MIDX * 0.6
   bally = MIDY 
   vx = -5
   vy = 1
