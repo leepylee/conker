@@ -69,7 +69,7 @@ func draw()
         prevRow = false
     end
   end 
-  if not prevRow
+  if cameraz > 10
     cameraz = -10
   end
 end
