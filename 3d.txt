@@ -29,6 +29,7 @@ func main()
       add cols, col(255, rnd(100), rnd(256), rnd(100))
     end
   end 
+  console false
 end
 
 func num displacement(num zDiff, num xOrY)
