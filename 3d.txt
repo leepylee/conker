@@ -34,15 +34,15 @@ func draw()
   num[] ys
   for zd to 100 // from 1M to 100M away from camera
     for xd to xsteps // from left to right
-      num hy = heights[zd * xsteps + xd)
+      num hy = heights[zd * xsteps + xd]
       num dispY = displacement(zd + 1 + posz, hy)
       num dispX = displacement(zd + 1 + posz, xd - camerax)
       add xs, dispx
       add ys, dispy
       if (zd > 0 and xd > 0)
-        num prevXIndex = len(xs) - 2;
-        num prevZIndex = len(xs) - 1 - xsteps;
-        num prevXandZIndex = prevZIndex - 1;
+        num prevXIndex = len(xs) - 2
+        num prevZIndex = len(xs) - 1 - xsteps
+        num prevXandZIndex = prevZIndex - 1
         paint 255, rnd(256), rnd(256), rnd(256)
         polygon xs[prevXandZIndex], ys[prevXandZIndex], xs[prevYIndex], ys[prevYIndex], xs[prevXIndex], ys[prevXIndex], dispX, dispY
       end
