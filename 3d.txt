@@ -1,19 +1,24 @@
 func main()
-  num oy = -2 // M below camera
   num posz = 0
-  num zsteps = 100
+  num zsteps = 40
   num xsteps = 40
   num camerax = xsteps / 2
+  num cameraz = -10
   
   num[] heights
   num[] cols
   for zd to zsteps // from 1M to 100M away from camera
     for xd to xsteps // from left to right
-      num prevHeight = -10 // M below camera
+      num prevHeight = -5 // 10 M below camera
       if zd > 0
         prevHeight = heights[(zd-1) * xsteps + xd]
       end
-      num height = prevHeight + rnd(3) - 1
+      num height = prevHeight + rnd(3)*0.1 - 0.05
+      if height < -15
+        height = -15
+      else if height > -1
+        height = -1
+      end
       add heights, height
       add cols, col(255, rnd(256), rnd(256), rnd(256))
     end
@@ -28,27 +33,27 @@ end
 
 func draw()
   posz += 0.05
-  paint BLUE
-  strokewidth 3
-  plot MIDX, MIDY
   style FILL
   num[] xs
   num[] ys
-  for zd to zsteps // from 1M to 100M away from camera
+  for zd to zsteps // from 1M to 100M away from camera    
     for xd to xsteps // from left to right
       num hy = heights[zd * xsteps + xd]
-      num dispy = displacement(zd + 1 + posz, hy)
-      num dispx = displacement(zd + 1 + posz, xd - camerax)
-      num sx = MIDX + dispx
-      num sy = MIDY + dispy
-      add xs, sx
-      add ys, sy
-      if (zd > 0 and xd > 0)
-        num prevXIndex = length(xs) - 2
-        num prevZIndex = length(xs) - 1 - xsteps
-        num prevXandZIndex = prevZIndex - 1
-        paint cols[prevXandZIndex]
-        polygon xs[prevXandZIndex], ys[prevXandZIndex], xs[prevZIndex], ys[prevZIndex], xs[prevXIndex], ys[prevXIndex], sx, sy
+      num dist = zd - cameraz + posz
+      if (dist > 0)
+        num dispy = displacement(zd - cameraz + posz, hy)
+        num dispx = displacement(zd - cameraz + posz, xd - camerax)
+        num sx = MIDX + dispx
+        num sy = MIDY - dispy
+        add xs, sx
+        add ys, sy
+        if (zd > 0 and xd > 0)
+          num prevXIndex = length(xs) - 2
+          num prevZIndex = length(xs) - 1 - xsteps
+          num prevXandZIndex = prevZIndex - 1
+          paint cols[prevXandZIndex]
+          polygon xs[prevXandZIndex], ys[prevXandZIndex], xs[prevZIndex], ys[prevZIndex], sx, sy, xs[prevXIndex], ys[prevXIndex]
+        end
       end
     end
   end 
