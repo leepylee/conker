@@ -1,5 +1,21 @@
 func main()
-  num oy = -1.5 // 1.5 M below camera
+  num oy = -2 // M below camera
+  num posz = 0
+  num zsteps = 100
+  num xsteps = 40
+  num camerax = xsteps / 2
+  
+  num[] heights
+  for zd to zsteps // from 1M to 100M away from camera
+    for xd to xsteps // from left to right
+      num prevHeight = -10 // M below camera
+      if zd > 0
+        prevHeight = heights[(zd-1) * xsteps + xd]
+      end
+      num height = prevHeight + rnd(3) - 1
+      add heights, height
+    end
+  end 
 end
 
 func num displacement(num zDiff, num xOrY)
@@ -9,15 +25,27 @@ func num displacement(num zDiff, num xOrY)
 end
 
 func draw()
+  posz += 0.05
   paint BLUE
   strokewidth 3
   plot MIDX, MIDY
   paint WHITE 
-  for zd from 1 to 100 step 10 // from 1M to 100M away from camera
-    for xd from -5 to 5 // from left to right
-      num dispY = displacement(zd, oy)
-      num dispX = displacement(zd, xd)
-      plot MIDX - dispX, MIDY - dispY
+  num[] xs
+  num[] ys
+  for zd to 100 // from 1M to 100M away from camera
+    for xd to xsteps // from left to right
+      num hy = heights[zd * xsteps + xd)
+      num dispY = displacement(zd + 1 + posz, hy)
+      num dispX = displacement(zd + 1 + posz, xd - camerax)
+      add xs, dispx
+      add ys, dispy
+      if (zd > 0 and xd > 0)
+        num prevXIndex = len(xs) - 2;
+        num prevZIndex = len(xs) - 1 - xsteps;
+        num prevXandZIndex = prevZIndex - 1;
+        paint 255, rnd(256), rnd(256), rnd(256)
+        polygon xs[prevXandZIndex], ys[prevXandZIndex], xs[prevYIndex], ys[prevYIndex], xs[prevXIndex], ys[prevXIndex], dispX, dispY
+      end
     end
   end 
 end
