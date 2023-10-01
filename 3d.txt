@@ -21,12 +21,12 @@ func main()
       
       if xd > 0
         num prevXHeight = heights[zd * zsteps + xd -1]
-        if abs(height - prevXheight) > 0.3 
-          height - prevXheight
+        if abs(height - prevXHeight) > 0.3 
+          height = prevXHeight
         end
       end   
       add heights, height
-      add cols, col(255, rnd(256), rnd(256), rnd(256))
+      add cols, col(255, rnd(100), rnd(256), rnd(100))
     end
   end 
 end
@@ -68,4 +68,7 @@ func draw()
         prevRow = false
     end
   end 
+  if not prevRow
+    cameraz = -10
+  end
 end
