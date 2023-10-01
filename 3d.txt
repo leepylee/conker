@@ -2,17 +2,17 @@ func main()
   num zsteps = 20
   num xsteps = 20
   num camerax = xsteps / 2
-  num cameraz = -10
+  num cameraz = -9
   
   num[] heights
   num[] cols
   for zd to zsteps // from 1M to xM away from camera
     for xd to xsteps // from left to right
-      num prevRowHeight = -5 // M below camera
+      num prevRowHeight = -5 -sin(xd)*0.5 // M below camera, interesting hills
       if zd > 0
         prevRowHeight = heights[(zd-1) * xsteps + xd]
       end
-      num height = prevRowHeight + rnd(3)*0.1 - 0.05
+      num height = prevRowHeight + rnd(3)*0.1 - 0.05 // new height based on row before
       if height < -15
         height = -15
       else if height > -1
@@ -21,12 +21,12 @@ func main()
       
       if xd > 0
         num prevXHeight = heights[zd * zsteps + xd -1]
-        if abs(height - prevXHeight) > 0.3 
-          height = prevXHeight
+        if abs(height - prevXHeight) > 0.3 // average height with neighbour if too far apart
+          height = (height + prevXHeight) / 2
         end
       end   
       add heights, height
-      add cols, col(255, rnd(100), rnd(256), rnd(100))
+      add cols, col(255, rnd(80), 100 + rnd(156), rnd(80))
     end
   end 
   console false
