@@ -8,16 +8,23 @@ func main()
   num[] cols
   for zd to zsteps // from 1M to xM away from camera
     for xd to xsteps // from left to right
-      num prevHeight = -5 // 10 M below camera
+      num prevRowHeight = -5 // M below camera
       if zd > 0
-        prevHeight = heights[(zd-1) * xsteps + xd]
+        prevRowHeight = heights[(zd-1) * xsteps + xd]
       end
-      num height = prevHeight + rnd(3)*0.1 - 0.05
+      num height = prevRowHeight + rnd(3)*0.1 - 0.05
       if height < -15
         height = -15
       else if height > -1
         height = -1
       end
+      
+      if xd > 0
+        num prevXHeight = heights[zd * zsteps + xd -1]
+        if abs(height - prevXheight) > 0.3 
+          height - prevXheight
+        end
+      end   
       add heights, height
       add cols, col(255, rnd(256), rnd(256), rnd(256))
     end
@@ -39,24 +46,24 @@ func draw()
   for zd to zsteps // from 1M to 100M away from camera
       num dist = zd - cameraz
       if (dist > 0)
-        prevRow = true
         for xd to xsteps // from left to right
           num i = zd * xsteps + xd
           num hy = heights[i]
-            num dispy = displacement(zd - cameraz, hy)
-            num dispx = displacement(zd - cameraz, xd - camerax)
-            num sx = MIDX + dispx
-            num sy = MIDY - dispy
-            add xs, sx
-            add ys, sy
-            if (xd > 0 and prevRow)
-              num prevXIndex = len(xs) - 2
-              num prevZIndex = len(xs) - 1 - xsteps
-              num prevXandZIndex = prevZIndex - 1
-              paint cols[i]
-              polygon xs[prevXandZIndex], ys[prevXandZIndex], xs[prevZIndex], ys[prevZIndex], sx, sy, xs[prevXIndex], ys[prevXIndex]
-            end
+          num dispy = displacement(zd - cameraz, hy)
+          num dispx = displacement(zd - cameraz, xd - camerax)
+          num sx = MIDX + dispx
+          num sy = MIDY - dispy
+          add xs, sx
+          add ys, sy
+          if (xd > 0 and prevRow)
+            num prevXIndex = length(xs) - 2
+            num prevZIndex = length(xs) - 1 - xsteps
+            num prevXandZIndex = prevZIndex - 1
+            paint cols[i]
+            polygon xs[prevXandZIndex], ys[prevXandZIndex], xs[prevZIndex], ys[prevZIndex], sx, sy, xs[prevXIndex], ys[prevXIndex]
           end
+        end
+        prevRow = true
       else
         prevRow = false
     end
