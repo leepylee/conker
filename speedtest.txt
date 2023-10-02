@@ -146,25 +146,28 @@ func draw()
     end
   end
 
-  // fps
-  frame++
-  num timeNow = now()
-  num diff = timeNow - timeOld
-  if diff == 0
-    diff = 1
-  end
-  num fps = 1000 / (timeNow - timeOld)
-  totalTime += fps
-  if frame > 10
-    textsize 50
-    paint RED
-    num avg = round(totalTime/frame)
-    text 200, MIDY, 'fps ' + avg + ' qty ' + qty + ' item ' + listItem + ' length ' + pixlen + ' paths ' + pathQty + ' shapes ' + shapeQty + ' moving ' + isMoving
-  end
-  timeOld = timeNow
+  drawFps()
 end  
 
 func doDialog()
   px = 0
   dialog 'Graphic Speed Test', 'Quantity', qty, listItem, 'Circles;Rectangles;Lines;Bitmaps;Triangles', 'Pixel length', pixlen, 'Paths', pathQty, 'Shapes', shapeQty, 'Moving Path/Shape', isMoving, button, 'OK;Cancel'
+end
+
+func drawFps()
+  frame++
+  num timeNow = now()
+  num dt = timeNow - timeOld
+  if dt == 0
+    dt = 1
+  end
+  num fps = 1000 / dt
+  totalTime += fps
+  if frame > 10
+    textsize 50
+    paint RED
+    num avg = round(totalTime/frame)
+    text MIDX, MIDY, string(avg)
+  end
+  timeOld = timeNow
 end
