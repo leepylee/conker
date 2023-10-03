@@ -32,8 +32,8 @@ func draw()
 end
 
 func batMove()
-  num rx = axis('AXIS_Z')
-  num ry = axis('AXIS_RZ')
+  num rx = axis('AXIS_X')
+  num ry = axis('AXIS_Y')
   if abs(rx) > 0.01
     x += rx * scale
   end
