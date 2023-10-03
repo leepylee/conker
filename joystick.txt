@@ -4,14 +4,22 @@ end
 
 func draw()
   style FILL
-  paint RED
   num ex = MIDX * 0.8
   num ey = MIDY * 0.8
+  paint RED
   circle axis('AXIS_X') * ex + MIDX - 50, axis('AXIS_Y') * ey + MIDY, 20
-  paint GREEN
-  circle axis('AXIS_Z') * ex + MIDX, axis('AXIS_RZ') * ey + MIDY, 20
-  paint PURPLE
-  circle axis('AXIS_BRAKE') * ex + MIDX + 50, axis('AXIS_GAS') * ey + MIDY, 20
+
+  text 'AXIS_X ' + axis('AXIS_X'), 300, 100 
+  text 'AXIS_Y ' + axis('AXIS_Y'), 300, 150
+  text 'AXIS_Z ' + axis('AXIS_Z'), 300, 200
+  text 'AXIS_RZ ' + axis('AXIS_RZ'), 300, 250
+  text 'AXIS_HAT_X ' + axis('AXIS_HAT_X'), 300, 300
+  text 'AXIS_HAT_Y ' + axis('AXIS_HAT_Y'), 300, 350
+  text 'AXIS_LTRIGGER ' + axis('AXIS_LTRIGGER'), 300, 400
+  text 'AXIS_RTRIGGER ' + axis('AXIS_RTRIGGER'), 300, 450
+  text 'AXIS_THROTTLE ' + axis('AXIS_THROTTLE'), 300, 500
+  text 'AXIS_GAS ' + axis('AXIS_GAS'), 300, 550
+  text 'AXIS_BRAKE ' + axis('AXIS_BRAKE'), 300, 600
   str s = inkey(0)
   if s != ''
     print s
