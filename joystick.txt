@@ -1,6 +1,5 @@
 func main()
   // Joystick Test
-  console false
 end
 
 func draw()
