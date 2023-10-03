@@ -10,7 +10,7 @@ func draw()
   paint RED
   circle axis('AXIS_X') * ex + MIDX - 50, axis('AXIS_Y') * ey + MIDY, 20
   text 300,200,'AXIS_X ' + axis('AXIS_X')
-  text 300,250'AXIS_Y ' + axis('AXIS_Y')
+  text 300,250,'AXIS_Y ' + axis('AXIS_Y')
   text 300,300,'AXIS_Z ' + axis('AXIS_Z')
   text 300,350,'AXIS_RZ ' + axis('AXIS_RZ')
   text 300,400,'AXIS_HAT_X ' + axis('AXIS_HAT_X')
