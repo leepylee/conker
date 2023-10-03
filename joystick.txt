@@ -1,5 +1,6 @@
 func main()
-  print 'Joystick Test'
+  // Joystick Test
+  console false
 end
 
 func draw()
@@ -8,18 +9,17 @@ func draw()
   num ey = MIDY * 0.8
   paint RED
   circle axis('AXIS_X') * ex + MIDX - 50, axis('AXIS_Y') * ey + MIDY, 20
-
-  text 300,100,'AXIS_X ' + axis('AXIS_X')
-  text 300,150'AXIS_Y ' + axis('AXIS_Y')
-  text 300,200,'AXIS_Z ' + axis('AXIS_Z')
-  text 300,250,'AXIS_RZ ' + axis('AXIS_RZ')
-  text 300,300,'AXIS_HAT_X ' + axis('AXIS_HAT_X')
-  text 300,350,'AXIS_HAT_Y ' + axis('AXIS_HAT_Y')
-  text 300,400,'AXIS_LTRIGGER ' + axis('AXIS_LTRIGGER')
-  text 300,450,'AXIS_RTRIGGER ' + axis('AXIS_RTRIGGER')
-  text 300,500,'AXIS_THROTTLE ' + axis('AXIS_THROTTLE')
-  text 300,550,'AXIS_GAS ' + axis('AXIS_GAS')
-  text 300,600,'AXIS_BRAKE ' + axis('AXIS_BRAKE')
+  text 300,200,'AXIS_X ' + axis('AXIS_X')
+  text 300,250'AXIS_Y ' + axis('AXIS_Y')
+  text 300,300,'AXIS_Z ' + axis('AXIS_Z')
+  text 300,350,'AXIS_RZ ' + axis('AXIS_RZ')
+  text 300,400,'AXIS_HAT_X ' + axis('AXIS_HAT_X')
+  text 300,450,'AXIS_HAT_Y ' + axis('AXIS_HAT_Y')
+  text 300,500,'AXIS_LTRIGGER ' + axis('AXIS_LTRIGGER')
+  text 300,550,'AXIS_RTRIGGER ' + axis('AXIS_RTRIGGER')
+  text 300,600,'AXIS_THROTTLE ' + axis('AXIS_THROTTLE')
+  text 300,650,'AXIS_GAS ' + axis('AXIS_GAS')
+  text 300,700,'AXIS_BRAKE ' + axis('AXIS_BRAKE')
   str s = inkey(0)
   if s != ''
     print s
