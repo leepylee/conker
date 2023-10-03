@@ -1,0 +1,96 @@
+    func main()
+    str[] wifis
+    add wifis, '                     ' + _
+             '                     ' + _
+             '                     ' + _
+             '        n   n        ' + _
+             '        nnnnn        ' + _
+             '        n n n        ' + _
+             '          n          ' + _
+             '                     ' + _
+             '                     '
+
+    add wifis, '                     ' + _
+             '                     ' + _
+             '      r       r      ' + _
+             '     r  n   n  r     ' + _
+             '     r  nnnnn  r     ' + _
+             '     r  n n n  r     ' + _
+             '      r   n   r      ' + _
+             '                     ' + _
+             '                     '
+
+    add wifis, '  rr             rr  ' + _
+             '  rr             rr  ' + _
+             'rr                 rr' + _
+             'rr      n   n      rr' + _
+             'rr      nnnnn      rr' + _
+             'rr      n n n      rr' + _
+             'rr        n        rr' + _
+             '  rr             rr  ' + _
+             '  rr             rr  '
+
+    str sheep = _
+          '                      gg   ' + _
+          '                     gggg  ' + _
+          '                    bbbkbb ' + _
+          '                   bbbbkbbw' + _
+          '  bbbbbbbbbbbbbbbbbbbbbbbbw' + _
+          ' bbbbbbbbbbbbbbbbbbbbbbbbbk' + _
+          'bbbbbbbbbbbbbbbbbbbbbbbb   ' + _
+          'bbbbbbbbbbbbbbbbbbbbbbb    ' + _
+          ' bbbbbbbbbbbbbbbbbbbbb     ' + _
+          ' bbbbbbbbbbbbbbbbbbbbb     ' + _
+          ' bbbbbbbbbbbbbbbbbbbbb     ' + _
+          ' bb b          bb b        ' + _
+          '  w w           w w        ' + _
+          '  w w           w w        ' + _
+          '  k k           k k        '
+
+    dict num pal
+    put pal, 'g', GREEN
+    put pal, 'r', RED
+    put pal, 'n', BROWN
+    put pal, 'b', DEEPSKYBLUE
+    put pal, 'k', BLACK
+    put pal, 'w', WHITE
+
+    picture sb, sheep, 27, pal
+
+    num[] wbs
+  for i to 3
+    picture wb, wifis[i], 21, pal
+    add wbs, wb
+    end
+
+    mirror lsb, sb
+    flip   usb, sb
+
+    canvas AQUAMARINE
+
+    figmap f, sb
+
+    num fr
+    num pose
+    end
+
+    func draw()
+    fr++
+            if fr == 10
+    fr = 0
+    pose++
+            if pose == 3
+    pose = 0
+    end
+            end
+    drawbitmap sb, 800, 500, 270, 150
+    drawbitmap wbs[pose], 800 + 130, 500 - 70, 210, 90
+    drawbitmap lsb, 500, 400, 270, 150
+    drawbitmap usb, 200, 400, 270, 150
+
+    scale f, 10, 10
+    drawfigure f, 300, 800
+    scale f, -10, 10
+    rotate f, 10, 10, 95
+    drawfigure f, 600, 800
+    end
