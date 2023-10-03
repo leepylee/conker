@@ -9,17 +9,17 @@ func draw()
   paint RED
   circle axis('AXIS_X') * ex + MIDX - 50, axis('AXIS_Y') * ey + MIDY, 20
 
-  text 'AXIS_X ' + axis('AXIS_X'), 300, 100 
-  text 'AXIS_Y ' + axis('AXIS_Y'), 300, 150
-  text 'AXIS_Z ' + axis('AXIS_Z'), 300, 200
-  text 'AXIS_RZ ' + axis('AXIS_RZ'), 300, 250
-  text 'AXIS_HAT_X ' + axis('AXIS_HAT_X'), 300, 300
-  text 'AXIS_HAT_Y ' + axis('AXIS_HAT_Y'), 300, 350
-  text 'AXIS_LTRIGGER ' + axis('AXIS_LTRIGGER'), 300, 400
-  text 'AXIS_RTRIGGER ' + axis('AXIS_RTRIGGER'), 300, 450
-  text 'AXIS_THROTTLE ' + axis('AXIS_THROTTLE'), 300, 500
-  text 'AXIS_GAS ' + axis('AXIS_GAS'), 300, 550
-  text 'AXIS_BRAKE ' + axis('AXIS_BRAKE'), 300, 600
+  text 300,100,'AXIS_X ' + axis('AXIS_X')
+  text 300,150'AXIS_Y ' + axis('AXIS_Y')
+  text 300,200,'AXIS_Z ' + axis('AXIS_Z')
+  text 300,250,'AXIS_RZ ' + axis('AXIS_RZ')
+  text 300,300,'AXIS_HAT_X ' + axis('AXIS_HAT_X')
+  text 300,350,'AXIS_HAT_Y ' + axis('AXIS_HAT_Y')
+  text 300,400,'AXIS_LTRIGGER ' + axis('AXIS_LTRIGGER')
+  text 300,450,'AXIS_RTRIGGER ' + axis('AXIS_RTRIGGER')
+  text 300,500,'AXIS_THROTTLE ' + axis('AXIS_THROTTLE')
+  text 300,550,'AXIS_GAS ' + axis('AXIS_GAS')
+  text 300,600,'AXIS_BRAKE ' + axis('AXIS_BRAKE')
   str s = inkey(0)
   if s != ''
     print s
