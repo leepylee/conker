@@ -28,8 +28,8 @@ func main()
   for by to blockWidth
     for bx to blockWidth
       num col = 0
-      if (by < blockInner or by > blockWidth - blockInner) and (bx < blockInner or bx > blockWidth - blockInner)
-        col = col(255, rnd(256), rnd(256), rnd(256)
+      if by < blockInner or by >= blockWidth - blockInner or bx < blockInner or bx >= blockWidth - blockInner
+        col = col(255, rnd(256), rnd(256), rnd(256))
       end
       add blocks, col
     end
