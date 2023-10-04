@@ -20,15 +20,30 @@ func main()
   num halfBat = batSize / 2
   num halfBall = ballThick / 2
 
+  num[] blocks
+  num blockWidth = 10
+  num blockInner = 4
+  num blockSpacing = MIDX / 20
+  num blockSize = MIDX / 25
+  for by to blockWidth
+    for bx to blockWidth
+      num col = 0
+      if (by < blockInner or by > blockWidth - blockInner) and (bx < blockInner or bx > blockWidth - blockInner)
+        col = col(255, rnd(256), rnd(256), rnd(256)
+      end
+      add blocks, col
+    end
+  end
   console false
 end
 
 func draw()
-  style FILL
+  style FILL  
   batMove()
   ballMove()
   drawBats()
   drawBall()
+  drawBlocks()
 end
 
 func batMove()
@@ -88,4 +103,18 @@ end
 func drawBall()
   style PINK
   circle ballx, bally, halfBall
+end
+
+func drawBlocks()
+  for by to blockWidth
+    for bx to blockWidth
+      num col = blocks[by * blockWidth + bx]
+      if col != 0
+        paint col
+        num leftx = MIDX * 0.6 + bx * blockSpacing
+        num topy = MIDY * 0.6 + by * blockSpacing
+        rect leftx, topy, leftx + blockSize, topy + blockSize
+      end
+    end
+  end
 end
