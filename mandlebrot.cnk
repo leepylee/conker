@@ -1,0 +1,56 @@
+func main()
+  print 'Mandlebrot'
+  num pix = 5
+  num sx = 100
+  num sy = 50
+  num m = 10
+  num x
+  bitmap b, sx, sy * 2
+  num off = 10
+end
+
+func draw()
+  if x < sx
+    calcNewLine(x)
+    x += 1
+  else
+    off += 0.1
+  end
+  //drawbitmap b, off, 0, SCREENW, SCREENH
+  figmap f, b
+  scale f, off, off
+  rotate f, off, 50, 25
+  drawfigure f,500,500
+end
+
+func calcNewLine(num x)
+  num[] pixels
+  num xi = x * pix / 200 - 2
+  for y to sy
+    num yi = y * pix / 200
+    num x2 = 0
+    num y2 = 0
+    num i = 1
+    num col = col(255, 0, 0, 0)
+    while i < m
+      num xs = x2 * x2
+      num ys = y2 * y2
+      if xs + ys > 4
+        col = col(255, i*25, i*12, (i % 10) * 200)
+        i = m
+      else
+        num xt = xi + xs - ys
+        y2 = yi +2*x2*y2
+        x2 = xt
+      end
+      i++
+    end
+    add pixels, col
+  end
+  num[] pix2
+  foreach p in pixels
+    insert pix2, 0, p
+  end
+  pastepixels b, x, sy, 1, pixels
+  pastepixels b, x, 0, 1, pix2
+end
