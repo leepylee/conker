@@ -104,11 +104,11 @@ func draw()
   else if sheepw == 1
     wx = r2x
     wy = r2y
-    l2x += 1
+    l2x -= 1
   else if sheepw == 2
     wx = l1x
     wy = l1y
-    r1x -= 1
+    r1x += 1
     adj = -70
   else
     wx = l2x

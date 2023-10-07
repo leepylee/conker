@@ -20,7 +20,7 @@ func main()
 end
 
 func num[] calcLand()
-  num h[]
+  num[] h
   num height = 0
   num nextFuel = 100 + rnd(100)
   for x to 3000
@@ -55,8 +55,8 @@ func num[] calcLand()
 end
 
 func num landShape()
-  for x to len(heights)
-    num top = heights(x]
+  for x to length(heights)
+    num top = heights[x]
     num pos = x * 5
     format sh, 'K{0} R{1} {2} {3} {4}', RED, pos, top, pos + 5, SCREENH
     add shapes, sh
