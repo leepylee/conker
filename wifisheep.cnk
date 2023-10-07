@@ -121,9 +121,9 @@ func draw()
   style FILL
   rect 0,0,SCREENW,200
 
+  drawbitmap leftb2, l2x, l2y, 270, 150
   drawbitmap rightb1, r1x, r1y, 270, 150
   drawbitmap leftb1, l1x, l1y, 270, 150
-  drawbitmap leftb2, l2x, l2y, 270, 150
   drawbitmap rightb2, r2x, r2y, 270, 150
 
   drawbitmap wifib[pose], wx + adj, wy - 70, 210, 90
