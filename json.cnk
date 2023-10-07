@@ -1,19 +1,23 @@
 
 struct StorageItem
   str name
-  str desc
   num type
-  num areaRef
   num boxNo
 end
 
 struct Storage
-    Storage[] storageItems
+  StorageItem[] storageItems
 end
 
 func main()
   Storage storage
-  if not exists('storage.dat')
+  num index
+  if exists('storage.dat')
+    loaddata storage, 'storage.dat'
+  else
+    StorageItem si = { name = 'Camp bed', type = 1, boxNo = 42 }  
+    add storage.storageItems, si
     savedata storage, 'storage.dat'
   end
+  print storage
 end
