@@ -106,7 +106,7 @@ func draw()
     totalTime = 0
   end
   
-  if inkey(0) != ''
+  if inkey(0) == ' '
     doDialog()
   end
   
