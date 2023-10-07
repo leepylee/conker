@@ -54,23 +54,29 @@ func main()
   put pal, 'k', BLACK
   put pal, 'w', WHITE
 
-  picture sb, sheep, 27, pal
+  picture rightb1, sheep, 27, pal
 
-  num[] wbs
+  pal['b'] = 'DARKVIOLET'
+
+  picture rightb2, sheep, 27, pal
+
+  num[] wifib
   for i to 3
     picture wb, wifis[i], 21, pal
-    add wbs, wb
+    add wifib, wb
   end
 
-  mirror lsb, sb
-  flip   usb, sb
+  mirror leftb1, rightb1
+  mirror leftb2, rightb2
 
   canvas AQUAMARINE
 
-  figmap f, sb
+  figmap f, rightb1
 
   num fr
   num pose
+
+  console false
 end
 
 func draw()
@@ -82,14 +88,15 @@ func draw()
       pose = 0
     end
   end
-  drawbitmap sb, 800, 500, 270, 150
-  drawbitmap wbs[pose], 800 + 130, 500 - 70, 210, 90
-  drawbitmap lsb, 500, 400, 270, 150
-  drawbitmap usb, 200, 400, 270, 150
+  drawbitmap rightb1, 800, 500, 270, 150
+  drawbitmap wifib[pose], 800 + 130, 500 - 70, 210, 90
+  drawbitmap leftb1, 500, 400, 270, 150
+  drawbitmap leftb2, 900, 450, 270, 150
+  drawbitmap rightb2, 800, 900, 270, 150
 
   scale f, 10, 10
   drawfigure f, 300, 800
-  scale f, -10, 10
+  scale f, -10, 10 
   rotate f, 10, 10, 95
   drawfigure f, 600, 800
 end
