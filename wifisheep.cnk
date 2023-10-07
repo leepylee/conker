@@ -44,9 +44,7 @@ func main()
              ' bb b          bb b        ' + _
              '  w w           w w        ' + _
              '  w w           w w        ' + _
-             '  k k           k k        ' + _
-             ' yyyyyyyyyyyyyyyyyyyy      ' + _
-             '  yyyyyyyyyyyyyyyyyy       '
+             '  k k           k k        ' 
 
   dict num pal
   put pal, 'g', GREEN
@@ -55,7 +53,6 @@ func main()
   put pal, 'b', DEEPSKYBLUE
   put pal, 'k', BLACK
   put pal, 'w', WHITE
-  put pal, 'y', DARKOLIVEGREEN
 
   picture rightb1, sheep, 27, pal
 
@@ -94,7 +91,7 @@ func draw()
   fr++
   num tenth = int(fr / 10)
   num hundred = int(fr / 100)
-  num pose = tenth % 4
+  num pose = tenth % 3
   num sheepw = hundred % 4
 
   num wx
@@ -112,19 +109,22 @@ func draw()
     wx = l1x
     wy = l1y
     r1x -= 1
+    adj = -70
   else
     wx = l2x
     wy = l2y
     l1x -= 1
+    adj = -70
   end
 
   paint LIGHTSKYBLUE
+  style FILL
   rect 0,0,SCREENW,200
 
-  drawbitmap rightb1, r1x, r1y, 270, 170
-  drawbitmap leftb1, l1x, l1y, 270, 170
-  drawbitmap leftb2, l2x, l2y, 270, 170
-  drawbitmap rightb2, r2x, r2y, 270, 170
+  drawbitmap rightb1, r1x, r1y, 270, 150
+  drawbitmap leftb1, l1x, l1y, 270, 150
+  drawbitmap leftb2, l2x, l2y, 270, 150
+  drawbitmap rightb2, r2x, r2y, 270, 150
 
   drawbitmap wifib[pose], wx + adj, wy - 70, 210, 90
 
