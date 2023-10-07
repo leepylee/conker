@@ -16,11 +16,7 @@ func draw()
   else
     off += 0.1
   end
-  //drawbitmap b, off, 0, SCREENW, SCREENH
-  figmap f, b
-  scale f, off, off
-  rotate f, off, 50, 25
-  drawfigure f,500,500
+  drawbitmap b, off, 0, SCREENW, SCREENH
 end
 
 func calcNewLine(num x)

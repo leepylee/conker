@@ -1,8 +1,0 @@
-func main()
-end
-
-func draw()
-  style FILL
-  paint col(255, rnd(255), rnd(255), rnd(255))
-  circle MIDX, MIDY, rnd(555)
-end
