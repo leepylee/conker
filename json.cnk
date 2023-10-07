@@ -1,0 +1,19 @@
+
+struct StorageItem
+  str name
+  str desc
+  num type
+  num areaRef
+  num boxNo
+end
+
+struct Storage
+    Storage[] storageItems
+end
+
+func main()
+  Storage storage
+  if not exists('storage.dat')
+    savedata storage, 'storage.dat'
+  end
+end
