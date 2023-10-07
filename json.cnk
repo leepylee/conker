@@ -6,13 +6,12 @@ struct Storage
 end
 
 func main()
-  Storage[] storages
+  Storage storage
   if exists('storage.dat')
-    loaddata storages, 'storage.dat'
+    loaddata storage, 'storage.dat'
   else
     StorageItem si = { name = 'Camp bed', type = 1, boxNo = 42 }  
-    add storages, si
-    savedata storages, 'storage.dat'
+    savedata storage, 'storage.dat'
   end
-  print storages
+  print storage
 end
