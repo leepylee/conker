@@ -78,8 +78,6 @@ func main()
 
   num fr
   num pose
-  num count
-
   num sheepw
   num r1x = 600
   num r1y = 500
@@ -94,19 +92,10 @@ end
 
 func draw()
   fr++
-  if fr == 10
-    fr = 0
-    pose++
-    if pose == 3
-      pose = 0
-      count++
-      if count = 10
-        sheepw++
-        if sheepw == 4
-          sheepw = 0
-        end
-    end
-  end
+  num tenth = int(fr / 10)
+  num hundred = int(fr / 100)
+  num pose = tenth % 4
+  num sheepw = hundred % 4
 
   num wx
   num wy
@@ -114,19 +103,19 @@ func draw()
   if sheepw == 0
     wx = r1x
     wy = r1y
-    r2x += 10    
+    r2x += 1    
   else if sheepw == 1
     wx = r2x
     wy = r2y
-    l2x += 10
+    l2x += 1
   else if sheepw == 2
-    wx == l1x
-    wy == l1y
-    r1x -= 10
+    wx = l1x
+    wy = l1y
+    r1x -= 1
   else
     wx = l2x
     wy = l2y
-    l1x -= 10
+    l1x -= 1
   end
 
   paint LIGHTSKYBLUE
@@ -134,8 +123,8 @@ func draw()
 
   drawbitmap rightb1, r1x, r1y, 270, 170
   drawbitmap leftb1, l1x, l1y, 270, 170
-  drawbitmap leftb2, l1x, l1y, 270, 170
-  drawbitmap rightb2, l2x, l2y, 270, 170
+  drawbitmap leftb2, l2x, l2y, 270, 170
+  drawbitmap rightb2, r2x, r2y, 270, 170
 
   drawbitmap wifib[pose], wx + adj, wy - 70, 210, 90
 
