@@ -10,8 +10,9 @@ func main()
   if exists('storage.dat')
     loaddata storage, 'storage.dat'
   else
-    StorageItem si = { name = 'Camp bed', type = 1, boxNo = 42 }  
-    savedata storage, 'storage.dat'
+    Storage s = { name = 'Camp bed', type = 1, boxNo = 42 }  
+    savedata s, 'storage.dat'
+    storage = s
   end
   print storage
 end
