@@ -44,7 +44,9 @@ func main()
              ' bb b          bb b        ' + _
              '  w w           w w        ' + _
              '  w w           w w        ' + _
-             '  k k           k k        '
+             '  k k           k k        ' + _
+             ' yyyyyyyyyyyyyyyyyyyy      ' + _
+             '  yyyyyyyyyyyyyyyyyy       '
 
   dict num pal
   put pal, 'g', GREEN
@@ -53,10 +55,11 @@ func main()
   put pal, 'b', DEEPSKYBLUE
   put pal, 'k', BLACK
   put pal, 'w', WHITE
+  put pal, 'y', DARKOLIVEGREEN
 
   picture rightb1, sheep, 27, pal
 
-  pal['b'] = 'DARKVIOLET'
+  pal['b'] = DARKVIOLET
 
   picture rightb2, sheep, 27, pal
 
@@ -69,13 +72,23 @@ func main()
   mirror leftb1, rightb1
   mirror leftb2, rightb2
 
-  canvas AQUAMARINE
+  canvas DARKGREEN
 
   figmap f, rightb1
 
   num fr
   num pose
+  num count
 
+  num sheepw
+  num r1x = 600
+  num r1y = 500
+  num r2x = 1100
+  num r2y = 700
+  num l1x = 300
+  num l1y = 400
+  num l2x = 1300
+  num l2y = 450
   console false
 end
 
@@ -86,13 +99,45 @@ func draw()
     pose++
     if pose == 3
       pose = 0
+      count++
+      if count = 10
+        sheepw++
+        if sheepw == 4
+          sheepw = 0
+        end
     end
   end
-  drawbitmap rightb1, 800, 500, 270, 150
-  drawbitmap wifib[pose], 800 + 130, 500 - 70, 210, 90
-  drawbitmap leftb1, 500, 400, 270, 150
-  drawbitmap leftb2, 900, 450, 270, 150
-  drawbitmap rightb2, 800, 900, 270, 150
+
+  num wx
+  num wy
+  num adj = 130
+  if sheepw == 0
+    wx = r1x
+    wy = r1y
+    r2x += 10    
+  else if sheepw == 1
+    wx = r2x
+    wy = r2y
+    l2x += 10
+  else if sheepw == 2
+    wx == l1x
+    wy == l1y
+    r1x -= 10
+  else
+    wx = l2x
+    wy = l2y
+    l1x -= 10
+  end
+
+  paint LIGHTSKYBLUE
+  rect 0,0,SCREENW,200
+
+  drawbitmap rightb1, r1x, r1y, 270, 170
+  drawbitmap leftb1, l1x, l1y, 270, 170
+  drawbitmap leftb2, l1x, l1y, 270, 170
+  drawbitmap rightb2, l2x, l2y, 270, 170
+
+  drawbitmap wifib[pose], wx + adj, wy - 70, 210, 90
 
   scale f, 10, 10
   drawfigure f, 300, 800
