@@ -70,13 +70,17 @@ func main()
 
   figmap f, b
 
+  num fr
+
   console false
 end
 
 func draw()
-  scale f, 10, 10
-  drawfigure f, 300, 800
-  scale f, -10, 10 
-  rotate f, 10, 10, 95
-  drawfigure f, 600, 800
+  fr++
+  scale f, 20, 20
+  rotate f, fr, 10, 10
+  drawfigure f, 400, 400
+  scale f, 10, 10 
+  rotate f, -fr, 10, 10
+  drawfigure f, 1200, 600
 end
