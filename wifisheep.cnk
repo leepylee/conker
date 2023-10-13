@@ -85,6 +85,8 @@ func main()
   num l2x = 1300
   num l2y = 450
   console false
+
+  num lee = fred + 1
 end
 
 func draw()
