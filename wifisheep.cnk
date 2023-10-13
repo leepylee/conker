@@ -86,7 +86,6 @@ func main()
   num l2y = 450
   console false
 
-  num lee = fred + 1
 end
 
 func draw()
