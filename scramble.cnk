@@ -26,6 +26,16 @@ func num[] calcLand()
   for x to 3000
     // fuel dump calcs
     nextFuel--
+    bool goUp
+    if x < 30
+      goUp = true
+    end
+    if rnd(10) > 4
+      goUp = true
+    end
+    if height > 300
+      goUp = false
+    end
     if nextFuel <= 0
       if nextFuel == 0
         add fuels, x
@@ -43,7 +53,7 @@ func num[] calcLand()
           nextFuel = 1 // ocassional have an immediate next fuel dump
         end
       end
-    else if (x < 30 or rnd(10) > 4) and height < 300
+    else if goUp
       height++
     else if height > 30
       height--
