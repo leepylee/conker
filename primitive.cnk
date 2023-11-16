@@ -61,6 +61,8 @@ func draw() // gets called multiple times a second - at the frame-rate
   // Plot a point
   plot x, y
 
+  paint BROWN
+
   // Draw a line
   line lx, ly, lx2, ly2
 
