@@ -46,7 +46,7 @@ func main()
 end
 
 func draw() // gets called multiple times a second - at the frame-rate
-  strokewidth 20
+  strokewidth 30
   // strokecap ROUND // ROUND, BUTT or SQUARE
   // style FILL // FILL, STROKE or FILLSTROKE
   // lgradient 0, 0, MIDX, 0, NAVY, LIMEGREEN, MIRROR // MIRROR, CLAMP or REPEAT
