@@ -102,7 +102,7 @@ func draw() // gets called multiple times a second - at the frame-rate
 end
 
 func changePositions()
-  if f % 500 == 0 // every so many frames
+  if f % 300 == 0 // every so many frames
     x = rnd(SCREENW) // random based on screen width of device
     y = rnd(SCREENH)
 
