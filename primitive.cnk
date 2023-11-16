@@ -46,7 +46,7 @@ func main()
 end
 
 func draw() // gets called multiple times a second - at the frame-rate
-  strokewidth 3
+  strokewidth 20
   // strokecap ROUND // ROUND, BUTT or SQUARE
   // style FILL // FILL, STROKE or FILLSTROKE
   // lgradient 0, 0, MIDX, 0, NAVY, LIMEGREEN, MIRROR // MIRROR, CLAMP or REPEAT
@@ -75,7 +75,7 @@ func draw() // gets called multiple times a second - at the frame-rate
 
   // Rounded Rectangle
   // rrect left, top, right, bottom, radius-x, radius-y
-  rrect rrx, rry, rrx2, rry2, 10, 5
+  rrect rrx, rry, rrx2, rry2, 30, 30
 
   paint CRIMSON
 
@@ -93,7 +93,7 @@ func draw() // gets called multiple times a second - at the frame-rate
 
   // Arc
   // arc left, top, right, bottom, start-angle, sweep-angle, make-slice
-  arc ax, ay, ax2, ay2, 0, 95, false
+  arc ax, ay, ax2, ay2, 0, 135, false
 
   paint ORANGE
 
@@ -133,10 +133,10 @@ func changePositions()
     px3 = rnd(SCREENW)
     py3 = rnd(SCREENH)
 
-    ax = rnd(SCREENW)
-    ay = rnd(SCREENH)
-    ax2 = rnd(SCREENW)
-    ay2 = rnd(SCREENH)
+    ax = rnd(MIDX)
+    ay = rnd(MIDY)
+    ax2 = ax + 100 + rnd(MIDX)
+    ay2 = ay + 100 + rnd(MIDY)
 
     cx = rnd(SCREENW)
     cy = rnd(SCREENH)
