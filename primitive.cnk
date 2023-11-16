@@ -39,6 +39,9 @@ func main()
   num ax2
   num ay2
 
+  num cx // circle coords
+  num cy
+
   num f = 0 // frame count
 end
 
@@ -92,6 +95,10 @@ func draw() // gets called multiple times a second - at the frame-rate
   // arc left, top, right, bottom, start-angle, sweep-angle, make-slice
   arc ax, ay, ax2, ay2, 0, 95, false
 
+  paint ORANGE
+
+  circle cx, xy, 100
+
 end
 
 func changePositions()
@@ -128,20 +135,20 @@ func changePositions()
 
   end
 
-  // move everything by 1 pixel in different directions
+  // move everything in different directions
   x++
 
   lx--
   lx2--
 
-  ry++
-  ry2++
+  ry += 2
+  ry2 += 2
 
   rry--
   rry2--
 
-  ox++
-  ox2++
+  ox += 2
+  ox2 += 2
 
   px--
   px2--
@@ -149,6 +156,8 @@ func changePositions()
 
   ay--
   ay2--
+
+  cy += 2  
 
   f++ // frame count
 end
