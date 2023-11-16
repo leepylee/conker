@@ -1,0 +1,149 @@
+func main()
+  // primitive graphics example
+  canvas BLACK // change background colour - here as just once needed
+
+  // These variables are declared here to be seen everywhere
+  // coordinates of all primitive graphics
+  num x // plot coords
+  num y
+
+  num lx  // line coords
+  num ly
+  num lx2
+  num ly2
+
+  num rx // rect coords
+  num ry
+  num rx2
+  num ry2
+
+  num rrx // rounded rectangle coords
+  num rry
+  num rrx2
+  num rry2
+
+  num ox // oval coords
+  num oy
+  num ox2
+  num oy2
+
+  num px // polygon coords
+  num py
+  num px2
+  num py2
+  num px3
+  num py3
+
+  num ax // arc coords
+  num ay
+  num ax2
+  num ay2
+
+  num f = 0 // frame count
+end
+
+func draw() // gets called multiple times a second - at the frame-rate
+  changePositions()
+
+  // change foreground colour
+  // You can choose any colour in the Conker manual menu    
+  // paint <colour-name>    or colour number
+  paint WHITE
+
+  // Plot a point
+  plot x, y
+
+  // Draw a line
+  line lx, ly, lx2, ly2
+
+  // col(<opaque>, <red>, <green>, <blue>)    col returns a colour number
+  paint col(255, 0, 0, 255) // fully opaque, fully blue
+
+  // Rectangle
+  // rect left, top, right, bottom
+  rect rx, ry, rx2, ry2
+
+  paint PINK
+
+  // Rounded Rectangle
+  // rrect left, top, right, bottom, radius-x, radius-y
+  rrect rrx, rry, rrx2, rry2, 10, 5
+
+  paint CRIMSON
+
+  // Oval
+  // oval left, top, right, bottom
+  oval ox, oy, ox2, oy2
+
+  paint NAVYBLUE
+
+  // Polygon
+  // polygon x, y, x2, y2, x3, y3 ... etc
+  polygon px, py, px2, py2, px3, py3
+
+  paint YELLOW
+
+  // Arc
+  // arc left, top, right, bottom, start-angle, sweep-angle, make-slice
+  arc ax, ay, ax2, ay2, 0, 95, false
+
+end
+
+func changePositions()
+  if f % 100 == 0 // every hundred frames
+    x = rnd(SCREENW) // random based on screen width of device
+    y = rnd(SCREENH)
+
+    lx = rnd(SCREENW)
+    ly = rnd(SCREENH)
+    lx2 = rnd(SCREENW)
+    ly2 = rnd(SCREENH)
+
+    rx = rnd(SCREENW)
+    ry = rnd(SCREENH)
+    rx2 = rnd(SCREENW)
+    ry2 = rnd(SCREENH)
+
+    rrx = rnd(SCREENW)
+    rry = rnd(SCREENH)
+    rrx2 = rnd(SCREENW)
+    rry2 = rnd(SCREENH)
+
+    ox = rnd(SCREENW)
+    oy = rnd(SCREENH)
+    ox2 = rnd(SCREENW)
+    oy2 = rnd(SCREENH)
+
+    px = rnd(SCREENW)
+    py = rnd(SCREENH)
+    px2 = rnd(SCREENW)
+    py2 = rnd(SCREENH)
+    px3 = rnd(SCREENW)
+    py3 = rnd(SCREENH)
+
+  end
+
+  // move everything by 1 pixel in different directions
+  x++
+
+  lx--
+  ly--
+
+  ry++
+  ry2++
+
+  rry--
+  rry2--
+
+  ox++
+  ox2++
+
+  px--
+  px2--
+  px3--
+
+  ay--
+  ay2--
+
+  f++ // frame count
+end
