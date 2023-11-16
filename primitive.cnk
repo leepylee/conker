@@ -133,13 +133,21 @@ func changePositions()
     px3 = rnd(SCREENW)
     py3 = rnd(SCREENH)
 
+    ax = rnd(SCREENW)
+    ay = rnd(SCREENH)
+    ax2 = rnd(SCREENW)
+    ay2 = rnd(SCREENH)
+
+    cx = rnd(SCREENW)
+    cy = rnd(SCREENH)
+
   end
 
   // move everything in different directions
   x++
 
-  lx--
-  lx2--
+  lx -= 2
+  lx2 -= 2
 
   ry += 2
   ry2 += 2
@@ -154,8 +162,8 @@ func changePositions()
   px2--
   px3--
 
-  ay--
-  ay2--
+  ay -= 2
+  ay2 -= 2
 
   cy += 2  
 
