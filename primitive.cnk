@@ -149,8 +149,8 @@ func changePositions()
   lx -= 2
   lx2 -= 2
 
-  ry += 2
-  ry2 += 2
+  ry++
+  ry2++
 
   rry--
   rry2--
