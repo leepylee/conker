@@ -97,7 +97,7 @@ func draw() // gets called multiple times a second - at the frame-rate
 
   paint ORANGE
 
-  circle cx, xy, 100
+  circle cx, cy, 100
 
 end
 
