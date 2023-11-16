@@ -43,10 +43,15 @@ func main()
 end
 
 func draw() // gets called multiple times a second - at the frame-rate
+  strokewidth 3
+  // strokecap ROUND // ROUND, BUTT or SQUARE
+  // style FILL // FILL, STROKE or FILLSTROKE
+  // lgradient 0, 0, MIDX, 0, NAVY, LIMEGREEN, MIRROR // MIRROR, CLAMP or REPEAT
+
   changePositions()
 
   // change foreground colour
-  // You can choose any colour in the Conker manual menu    
+  // You can choose any colour in the Conker manual menu 'Colour Names'   
   // paint <colour-name>    or colour number
   paint WHITE
 
@@ -75,7 +80,7 @@ func draw() // gets called multiple times a second - at the frame-rate
   // oval left, top, right, bottom
   oval ox, oy, ox2, oy2
 
-  paint NAVYBLUE
+  paint PURPLE
 
   // Polygon
   // polygon x, y, x2, y2, x3, y3 ... etc
@@ -90,7 +95,7 @@ func draw() // gets called multiple times a second - at the frame-rate
 end
 
 func changePositions()
-  if f % 100 == 0 // every hundred frames
+  if f % 500 == 0 // every so many frames
     x = rnd(SCREENW) // random based on screen width of device
     y = rnd(SCREENH)
 
@@ -127,7 +132,7 @@ func changePositions()
   x++
 
   lx--
-  ly--
+  lx2--
 
   ry++
   ry2++
