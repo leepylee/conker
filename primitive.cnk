@@ -75,7 +75,7 @@ func draw() // gets called multiple times a second - at the frame-rate
 
   // Rounded Rectangle
   // rrect left, top, right, bottom, radius-x, radius-y
-  rrect rrx, rry, rrx2, rry2, 30, 30
+  rrect rrx, rry, rrx2, rry2, 50, 50
 
   paint CRIMSON
 
