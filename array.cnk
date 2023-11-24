@@ -1,0 +1,33 @@
+func main()
+  num[] ia = {4,6,9}
+  print ia[0]
+  print '? 4'
+
+  num[] ia2
+  clone ia2 = ia
+  add ia, 3
+  print ia
+  print ia2
+  print '? {4,6,9}'
+  print '? {4,6,9,3}'
+
+  sort ia, 'asc'
+  print ia
+  print '? {3,4,6,9}'
+  sort ia, 'desc'
+  print ia
+  print '? {9,6,4,3}'
+
+  add ia, 79
+  ia[1] = 10
+  remove ia, 0
+  insert ia, 3-2, 100+48
+  print ia
+  print '? {10,148,4,3,79}'
+  print ia[0]
+  print '? 10'
+
+  num x = 0
+  print ia[x + 4]
+  print '? 79'
+end

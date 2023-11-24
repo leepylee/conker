@@ -1,0 +1,16 @@
+func main()
+  dict num d
+  put d, 'tom', 6
+  put d, 'dick',8
+  put d, 'harry', 10
+  d['harry'] = 11
+  print d
+  str[] sa = keys(d)
+  print sa
+  remove d, 'dick'
+  print d
+  print d['harry']
+  print haskey(d, 'harry')
+  print haskey(d, 'dick')
+end  
+
