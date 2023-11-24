@@ -5,12 +5,24 @@ func main()
   put d, 'harry', 10
   d['harry'] = 11
   print d
+  print '? {tom=6,dick=8,harry=11}'
   str[] sa = keys(d)
   print sa
+  print '? {tom,dick,harry}'
   remove d, 'dick'
   print d
+  print '? {tom=6,harry=11}
   print d['harry']
+  print '? 11'
   print haskey(d, 'harry')
+  print '? true'
   print haskey(d, 'dick')
+  print '? false'
+  clonedict d2 = d
+  put d2, 'sue', 6
+  print d
+  print '? {tom=6,harry=11}
+  print d2
+  print '? {tom=6,harry=11,sue=6}
 end  
 

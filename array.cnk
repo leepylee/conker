@@ -4,12 +4,12 @@ func main()
   print '? 4'
 
   num[] ia2
-  clone ia2 = ia
+  clonearray ia2 = ia
   add ia, 3
   print ia
+  print '? {4,6,9,3}'
   print ia2
   print '? {4,6,9}'
-  print '? {4,6,9,3}'
 
   sort ia, 'asc'
   print ia
@@ -21,7 +21,7 @@ func main()
   add ia, 79
   ia[1] = 10
   remove ia, 0
-  insert ia, 3-2, 100+48
+  delete ia, 3-2, 100+48
   print ia
   print '? {10,148,4,3,79}'
   print ia[0]
@@ -30,4 +30,12 @@ func main()
   num x = 0
   print ia[x + 4]
   print '? 79'
+
+  print find(ia, '', '79', 2)
+  print '? 4'
+
+  empty ia
+  add ia, 78
+  print ia
+  print '? {78}'
 end
