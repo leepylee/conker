@@ -1,0 +1,6 @@
+func main()
+  str exp = '7 * 8'
+  num result
+  eval result, exp
+  print result
+end
