@@ -1,0 +1,11 @@
+  num i = 9 
+  str s = 'Hi'
+  bool b = false
+  num[] ia = {4, 5 ,6}
+  str[] sa = {'A', 'B', 'C'}
+  num i2
+  str s2
+  num[] ia2
+  str[] sa2
+  print i, s, b, ia, sa, i2, s2, ia2, sa2
+
