@@ -24,6 +24,7 @@ func main()
   print haskey(d, 'dick')
   print '? false'
 
+  dict num d2
   clonedict d2 = d
   put d2, 'sue', 6
   print d
@@ -34,6 +35,6 @@ func main()
   empty d2
   put d2, 'kay', 9
   print d2
-  print '? {kay=9}
+  print '? {kay=9}'
 end  
 
