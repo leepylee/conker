@@ -1,0 +1,21 @@
+
+func main()
+  str[] parts
+  add parts, 'K' + RED
+  add parts, 'P0 0'
+  add parts, 'L0 0 100, 100'
+  add parts, 'R100 100 200 300'
+  add parts, 'U200 300 300 500 10 5'
+  add parts, 'C0 200 100'
+  add parts, 'H150 200 200 300 90 180 1'
+  add parts, 'O100 200 400 300'
+  add parts, 'Y3 100 200 400 300 120 320'
+  str elements = join(parts, ' ')
+  shape s, elements
+  num x
+end
+
+func draw()
+  drawshape s, x, MIDY
+  x += 5
+end
