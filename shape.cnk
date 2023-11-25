@@ -2,20 +2,22 @@
 func main()
   str[] parts
   add parts, 'K' + RED
-  add parts, 'P0 0'
-  add parts, 'L0 0 100, 100'
-  add parts, 'R100 100 200 300'
-  add parts, 'U200 300 300 500 10 5'
-  add parts, 'C0 200 100'
-  add parts, 'H150 200 200 300 90 180 1'
-  add parts, 'O100 200 400 300'
-  add parts, 'Y3 100 200 400 300 120 320'
+  add parts, 'P0 250'
+  add parts, 'L500 0 550 100'
+  add parts, 'R110 0 150 300'
+  add parts, 'U200 0 280 500 20 20'
+  add parts, 'C0 100 100'
+  add parts, 'A450 0 500 300 35 100 1'
+  add parts, 'O300 0 430 300'
+  add parts, 'Y3 600 0 700 300 600 620'
   str elements = join(parts, ' ')
   shape s, elements
   num x
 end
 
 func draw()
+  style FILL
+  stokewidth 10
   drawshape s, x, MIDY
   x += 5
 end 
