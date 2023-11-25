@@ -17,7 +17,7 @@ end
 
 func draw()
   style FILL
-  stokewidth 10
+  strokewidth 10
   drawshape s, x, MIDY
   x += 5
 end 
