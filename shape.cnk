@@ -18,4 +18,4 @@ end
 func draw()
   drawshape s, x, MIDY
   x += 5
-end
+end 
