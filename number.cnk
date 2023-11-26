@@ -82,18 +82,20 @@ func main()
 
   // value of PI  
   // PI 
-  print 'PI', PI \n"
+  print 'PI', PI
 
   str expr
   dialog 'Type expression with x', expr
   for x to 5
     eval y, expr
-    print y\n"
+    print y
+  end
 end
-
+ 
 func draw()
- strokewidth 10
+  strokewidth 10
   num h = MIDY
-  for x to SCREENW step 10
+  for x to SCREENW step 0.5
     plot x, h + h * sin(x / 50)
+  end
 end
