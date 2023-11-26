@@ -1,0 +1,99 @@
+func main()
+  // Calculate the sine of an angle in radians 
+  // sin(angle-in-radians)
+  print 'sin(1)', sin(1)
+
+  // Calculate the cosine of an angle in radians 
+  // cos(angle-in-radians)
+  print 'cos(1)', cos(1)
+
+  // Calculate the tangent of an angle in radians 
+  // tan(angle-in-radians)
+  print 'tan(1)', tan(1)
+
+  // Calculate the arcsine of an angle in radians 
+  // asn(angle-in-radians)
+  print 'asn(1)', asn(1)
+
+  // Calculate the arccosine of an angle in radians 
+  // acs(angle-in-radians)
+  print 'acs(1)', acs(1)
+
+  // Calculate the arctangent of an angle in radians 
+  // atn(angle-in-radians)
+  print 'atn(1)', atn(1)
+
+  // Calculate the common logarithm of a number to base 10 
+  // log(number)
+  print 'log(100)', log(100)
+
+  // Calculate the natural logarithm of a number 
+  // ln(number)
+  print 'ln(100)', ln(100)
+
+  // Generate a random number 
+  // rnd(number) 1 means 0 - 1 decimal fraction, 2+ means a random whole number between 1 and 2+ etc
+  print 'rnd(1)', rnd(1)
+  print 'rnd(10)', rnd(10)
+
+  // square root of a number 
+  // sqr(number)
+  print 'sqr(16)', sqr(16)
+
+  // absolute value of number makes all numbers positive 
+  // abs(number)
+  print 'abs(-9)', abs(-9)
+
+  // sign value of number is -1 for negative, 1 for positive and 0 for 0 
+  // sgn(number)
+  print 'sgn(-9)', sgn(-9)
+
+  // round to nearest whole number 
+  // round(number)
+  print 'round(4.5)', round(4.5)
+
+  // round up to next whole number 
+  // roundup(number)
+  print 'roundup(4.1)', roundup(4.1)
+
+  // round down to next whole number 
+  // int(number)
+  print 'int(4.9)', int(4.9)
+
+  // raise to power 
+  // pow(base, exponent)
+  print 'pow(2,10)', pow(2,10)
+
+  // base of natural logarithm 
+  // exp(number)
+  print 'exp(11)', exp(11)
+
+  // convert angle in degrees to radians 
+  // rad(degrees)
+  print 'rad(90)', rad(90)
+
+  // convert angle in radians to degrees 
+  // deg(radians)
+  print 'deg(0.5)', deg(0.5)
+
+  // Convert hexadecimal to decimal 
+  // hex2dec(hex str)   
+  print 'hex2dec(ffff)', hex2dec('ffff') 
+
+  // value of PI  
+  // PI 
+  print 'PI', PI \n"
+
+  str expr
+  dialog 'Type expression with x', expr
+  for x to 5
+    eval y, expr
+    print y\n"
+end
+
+func draw()
+ strokewidth 10
+  num h = MIDY
+  for x to SCREENW step 10
+    plot x, h + h * sin(x / 50)
+end
