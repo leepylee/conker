@@ -6,8 +6,10 @@ func main()
   add parts, 'L500 0 550 100'
   add parts, 'R110 0 150 300'
   add parts, 'U200 0 280 500 20 20'
+  add parts, 'K' + BLUE
   add parts, 'C0 100 100'
   add parts, 'A450 0 500 300 35 100 1'
+  add parts, 'K' + GREEN
   add parts, 'O300 0 430 300'
   add parts, 'Y3 600 0 700 300 600 620'
   str elements = join(parts, ' ')
