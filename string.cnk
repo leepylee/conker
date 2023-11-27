@@ -73,6 +73,7 @@ func main()
   print form
 
   // len function demonstration
+  str w
   dialog 'Type in your word', w
   num length = len(w)
   str coded
