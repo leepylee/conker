@@ -1,0 +1,87 @@
+func main()
+  // left(string, number-of-chars) 
+  print left('Homework',4)
+
+  // right(string, number-of-chars)  
+  print right('Homework',4)
+
+  // mid(string, start-position,  number-of-chars)  
+  print mid('Homework',2,2)
+
+  // midf(string, start-position)  
+  print midf('Homework',4)
+
+  // midft(string, start-position, to-position)  
+  print midft('Homework',4, 7)
+
+  // len(string) returns length
+  print len('Homework')
+
+  // instr(string, find-string)  returns position (0 based)
+  print instr('Homework', 'me')
+
+  // Convert first character of string to ASCII number 
+  // asc(string)
+  print asc('A')
+
+  // Convert ASCII number to character string
+  // chr(ascii-number)
+  print chr(66)
+
+  // Convert number to string
+  // string(number)
+  num b = 5.1
+  print string(b)
+
+  // Repeat a string n times
+  // strings(number,  string)
+  print strings(20,'-O')
+
+  // Parse the numeric value of a string
+  // val(string)
+  print val('1.05E+05')
+
+  // Trim leading and trailing whitespace from string 
+  // trim(string)
+  print trim(' chars ') + '.'
+
+  // Convert to uppercase
+  // upper(string)
+  print upper('apple')
+
+  // Convert to lowercase 
+  // lower(string)
+  print lower('APPLE')
+
+  // A number of spaces
+  // spc(number)
+  print 'hi' + spc(20) + 'there'
+
+  // split into parts
+  // arr = split(s, seperator)
+  str[] parts = split('my string words', ' ')
+  print parts
+
+  // join parts together
+  // join(arr, seperator)
+  str joined = join(parts, '-')
+  print joined
+
+  // formatting
+  // format new-var-name, template, exp-1, exp-2, etc
+  format form, 'my template {0} for this {1}', 1+6, 'day'
+  print form
+
+  // len function demonstration
+  dialog 'Type in your word', w
+  num length = len(w)
+  str coded
+  for y to length
+    str b = mid(w, y, 1)
+    coded = coded + chr(asc(b) + 1)
+  end
+  print 'The coded version is ', coded
+end
+
+func draw()
+end
