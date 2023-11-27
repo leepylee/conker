@@ -1,6 +1,6 @@
 func main()
-  paint BLUE
-  lgradient 0, 0, MIDX, 0, GREEN, PINK, MIRROR
+  lgradient 200, 0, 350, 0, GREEN, PINK, MIRROR
+  style FILL
 
   str[] parts
 
@@ -10,32 +10,32 @@ func main()
   // Vertical line to:  V<Y> 
   // Horizontal line to:  H<X> 
   // Close contour:  Z 
-  add parts, 'M0 -50 L50 -25 V50 H-50 V-25 Z'
+  add parts, 'M0 -450 L50 -425 V-350 H-50 V-425 Z'
 
   // Path Circle Example
   // C<X> <Y> <Radius>
-  add parts, 'C0 0 100 0'
+  add parts, 'C0 0 -200 0'
 
   // Path Oval Example
   // O<X> <Y> <X2> <Y2> <0=Clockwise / 1=Anticlockwise>
-  add parts, 'O-50 -75 50 75 0'
+  add parts, 'O150 -275 250 -125 0'
 
   // Path Rectangle Example
   // R<X> <Y> <X2> <Y2> <0=Clockwise / 1=Anticlockwise>
-  add parts, 'R-50 -75 50 75 0'
+  add parts, 'R-50 -175 50 -25 0'
 
   // Path Quadratic Bezier Curve To Example
   // MoveFigure to:  M<Start-X> <Start-Y>
   // Bezier curve to:  Q<Control-X> <Control-Y> <End-X> <End-Y>
-  add parts, 'M-100 -75 Q-100 75 100 75'
+  add parts, 'M100 -75 Q100 75 200 75'
 
   // Path Round Rectangle Example
   // U<X> <Y> <X2> <Y2> <Radius-X> <Radius-Y> <0=Clockwise / 1=Anticlockwise>
-  add parts, 'U-50 -75 50 75 10 10 0'
+  add parts, 'U-50 25 50 175 10 10 0'
 
-  // Arc Example
+  // Arc to Example
   // A<X> <Y> <X2> <Y2> <Start-Angle> <Sweep Angle> (always clockwise)
-  add parts, 'A-50 -75 50 75 90 100'
+  add parts, 'M300 250 A200 200 300 300 0 125 L400 100'
 
   str elements = join(parts, ' ')
   path p, elements
