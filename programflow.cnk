@@ -1,0 +1,82 @@
+func main()
+  // stop
+  str s = 'fred' 
+  stop s
+
+  // if else
+  num a = 5
+  if a == 5
+    print '5'
+  end
+  if a == 6
+    print '6'
+  else 
+    print 'else'
+  end
+
+  // trace
+  num i = 0 
+  num b = 0 
+  trace i, b 
+  while i < 4 
+    i = i + 1 
+    b = b + 2 
+  end                        
+  trace off
+
+  // onerror
+  num eggs = 100 
+  num boxSize
+  num boxes
+  repeat
+    dialog 'Box size', boxSize
+    onerror errorStr 
+      boxes = roundup(eggs / boxSize) 
+    if errorStr != ''
+      print 'Invalid box size' 
+    until errorStr == ''
+  print 'Boxes needed', boxes
+
+  // while
+  num a = 1 
+  while a != 7
+    a++
+  end
+  print a
+
+  // foreach / break
+  num[] throws = { 5, 4, 1, 6, 2, 3, 5 }
+  foreach dice in throws
+    print dice
+    if dice == 6
+      break
+    end
+  end
+  print 'done'
+
+  // for / break
+  for x to 10
+    if x == 7
+      break
+    end
+    print x
+  end
+
+  // continue                
+  foreach dice in throws
+    if dice == 6
+      print 'Its a double'
+      continue
+    end
+    print dice
+  end
+  print 'done'
+
+  // for contine
+  for y to 10
+    if y == 7
+      continue
+    end
+    print y
+  end
+end  
