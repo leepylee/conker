@@ -99,7 +99,7 @@ func main()
     if z == 3
       continue
     end
-    print Z
+    print z
     z++
   end
   print '? 0 1 2 4'
