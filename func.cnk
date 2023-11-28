@@ -1,0 +1,30 @@
+func main()
+  num i = 6
+  str n = 'fred'
+  print addOne(i, n) 
+  print addOne2(6)  
+  print addOne3(6)  
+  print addOne4(6)  
+  print i, n
+end
+
+// func <return-type> <name>([params]) 
+func num addOne(num i, str name)
+  name = 'test'
+  return i+1
+end
+
+// Return error - test missing return statement error
+func num addOne2(num i)
+  // no return
+end
+
+// Return error - incorrect return type
+func num addOne3(num i)
+  return 'A'
+end
+
+// Return error - missing return type
+func num addOne4(num i)
+  return
+end
