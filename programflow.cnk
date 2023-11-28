@@ -26,7 +26,7 @@ func main()
     b = b + 2 
   end                        
   trace off
-  print '? trace till 3'
+  print '? trace till i 4'
 
   // onerror
   num eggs = 100 
@@ -45,7 +45,7 @@ func main()
     end
   end    
   print 'Boxes needed', boxes
-  print '? error with 0'
+  print '? dialog error with 0'
 
   // while
   num c = 1 
@@ -63,7 +63,7 @@ func main()
       break
     end
   end
-  print '? 5 4 1'
+  print '? 5 4 1 6'
 
   // for / break
   for x to 10
@@ -74,7 +74,7 @@ func main()
   end
   print '? 0 - 6'
 
-  // continue                
+  // foreach continue                
   foreach dice in throws
     if dice == 6
       print 'Its a double'
@@ -82,14 +82,26 @@ func main()
     end
     print dice
   end
-  print '? 5 4 2 double'
+  print '? 5 4 1 its a double 2 3 5'
 
-  // for contine
+  // for continue
   for y to 10
     if y == 7
       continue
     end
     print y
   end
+  print '? 0 - 6 8 - 9'
+
+  // while continue
+  num Z
+  while z < 5
+    if z == 3
+      continue
+    end
+    print Z
+    z++
+  end
+  print '? 0 1 2 4'
+
 end  
-print '? 0 - 6 8 - 9'
