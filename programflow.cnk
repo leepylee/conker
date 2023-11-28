@@ -2,17 +2,20 @@ func main()
   // stop
   str s = 'fred' 
   stop s
+  print '? fred'
 
   // if else
   num a = 5
   if a == 5
     print '5'
   end
+  print '? 5'
   if a == 6
     print '6'
   else 
     print 'else'
   end
+  print '? else'
 
   // trace
   num i = 0 
@@ -23,26 +26,34 @@ func main()
     b = b + 2 
   end                        
   trace off
+  print '? trace till 3'
 
   // onerror
   num eggs = 100 
   num boxSize
   num boxes
-  repeat
-    dialog 'Box size', boxSize
+  str error
+  while true
+    dialog 'Box size', boxSize, error, 0
     onerror errorStr 
-      boxes = roundup(eggs / boxSize) 
+      boxes = roundup(eggs / boxSize)
+    end 
     if errorStr != ''
-      print 'Invalid box size' 
-    until errorStr == ''
+      error = 'Invalid box size' 
+    else 
+      break
+    end
+  end    
   print 'Boxes needed', boxes
+  print '? error with 0'
 
   // while
-  num a = 1 
-  while a != 7
-    a++
+  num c = 1 
+  while c != 7
+    c++
   end
-  print a
+  print c
+  print '? 7'
 
   // foreach / break
   num[] throws = { 5, 4, 1, 6, 2, 3, 5 }
@@ -52,7 +63,7 @@ func main()
       break
     end
   end
-  print 'done'
+  print '? 5 4 1'
 
   // for / break
   for x to 10
@@ -61,6 +72,7 @@ func main()
     end
     print x
   end
+  print '? 0 - 6'
 
   // continue                
   foreach dice in throws
@@ -70,7 +82,7 @@ func main()
     end
     print dice
   end
-  print 'done'
+  print '? 5 4 2 double'
 
   // for contine
   for y to 10
@@ -80,3 +92,4 @@ func main()
     print y
   end
 end  
+print '? 0 - 6 8 - 9'
