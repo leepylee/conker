@@ -94,7 +94,7 @@ func main()
   print '? 0 - 6 8 - 9'
 
   // while continue
-  num Z
+  num z
   while z < 5
     if z == 3
       continue
