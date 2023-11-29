@@ -1,0 +1,27 @@
+        // text
+        examples.put("text",
+                "class\n" +
+                        "  // Text Example\n" +
+                        "  hold\n" +
+                        "func draw()\n" +
+                        "  cls\n" +
+                        "  textsize 100\n" +
+                        "  style FILL\n" +
+                        "  drawtext(SCREENH * 0.5)\n" +
+                        "  style STROKE\n" +
+                        "  drawtext(SCREENH * 0.75)\n" +
+                        "  style FILLSTROKE\n" +
+                        "  drawtext(SCREENH)\n" +
+                        "func drawtext(num y)\n" +
+                        "  num x = SCREENW * 0.25\n" +
+                        "  num w = SCREENW\n" +
+                        "  strokewidth 5\n" +
+                        "  text 'AjfYWi', x, y\n" +
+                        "  print textheight(), textwidth('phrase'), textascent(), textdescent()\n" +
+                        "  strokewidth 1\n" +
+                        "  line 0, y, w, y \n" +
+                        "  line 0, y - textascent(), w, y - textascent()\n" +
+                        "  line 0, y + textdescent(), w, y + textdescent()\n" +
+                        "  line 0, y + textdescent() - textheight(), w, y + textdescent() - textheight()\n" +
+                        "  line 0, y + textdescent() - 100, w, y + textdescent() - 100\n"
+        );

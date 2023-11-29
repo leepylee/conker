@@ -1,0 +1,139 @@
+        // bitmap
+        examples.put("bitmap",
+                "class\n" +
+                        "  // Bitmap Example\n" +
+                        "  num[] pix  = { RED, BLUE, RED, YELLOW, WHITE, YELLOW } \n" +
+                        "  // bitmap new-var, width, arr-pixel-colours \n" +
+                        "  bitmap b, 3, pix \n" +
+                        "  num x = 0 \n" +
+                        "  hold \n" +
+                        "func draw()\n" +
+                        "  // drawbitmap bitmap-num, left, top, width, height \n" +
+                        "  drawbitmap b, x, MIDY, 100, 100 \n" +
+                        "  x++ \n"
+        );
+
+        // save / load bitmap
+        examples.put("loadbitmap",
+                "class\n" +
+                        "  // Save / Load Bitmap Example\n" +
+                        "  num[] pix  = { RED, BLUE, RED, YELLOW, WHITE, YELLOW } \n" +
+                        "  bitmap b, 3, pix \n" +
+                        "  // savebitmap bitmap-num, 'filename' \n" +
+                        "  savebitmap b, 'test' \n" +
+                        "  // loadbitmap bitmap-var, 'filename' \n" +
+                        "  loadbitmap b2, 'test' \n" +
+                        "  hold \n" +
+                        "func draw()\n" +
+                        "  drawbitmap b2, MIDX, MIDY, 100, 100 \n"
+        );
+
+
+        // bitmap pixel color
+        examples.put("copypixels",
+                "class\n" +
+                        "  // Pixels Grab Example\n" +
+                        "  num[] pix  = { RED, BLUE, RED, YELLOW, WHITE, YELLOW } \n" +
+                        "  bitmap b, 3, pix \n" +
+                        "  // copypixels(bitmap, x, y, width, height) \n" +
+                        "  print copypixels(b, 1, 0, 2, 2) \n"
+        );
+
+        // save / load bitmap
+        examples.put("pastepixels",
+                "class\n" +
+                        "  // Pastepixels Example\n" +
+                        "  num[] pix  = { RED, BLUE, RED, YELLOW, WHITE, YELLOW } \n" +
+                        "  bitmap b, 3, pix \n" +
+                        "  num[] pix2  = { BLACK, BLACK, BLACK, BLACK } \n" +
+                        "  pastepixels b, 1, 0, 2, pix2\n" +
+                        "  hold \n" +
+                        "func draw()\n" +
+                        "  drawbitmap b, MIDX, MIDY, 100, 100 \n"
+        );
+
+
+        // figmap figure from bitmap
+        examples.put("figmap",
+                "class\n" +
+                        "  // Figmap figure from bitmap (0 is transparent) \n" +
+                        "  num[] pix  = { 0, BLUE, RED, YELLOW, BLACK, YELLOW, CYAN, WHITE, BLUE, GREEN } \n" +
+                        "  bitmap b, 5, pix \n" +
+                        "  // figmap figure-var, bitmap-num \n" +
+                        "  figmap f, b \n" +
+                        "  movefigure f, MIDX, MIDY \n" +
+                        "  scale f, 300, 300 \n" +
+                        "  num ang=0 \n" +
+                        "  hold\n" +
+                        "func draw()\n" +
+                        "  rotate f, ang, 0, 0 \n" +
+                        "  ang = ang + 1 \n"
+
+        );
+
+        // bitmap bheight
+        examples.put("bheight",
+                "class\n" +
+                        "  // Bheight Example\n" +
+                        "  num[] pix  = { RED, BLUE, RED, YELLOW, WHITE, YELLOW } \n" +
+                        "  bitmap b, 3, pix \n" +
+                        "  print bheight(b) \n"
+        );
+
+        // bitmap bwidth
+        examples.put("bwidth",
+                "class\n" +
+                        "  // Bwidth Example\n" +
+                        "  num[] pix  = { RED, BLUE, RED, YELLOW, WHITE, YELLOW } \n" +
+                        "  bitmap b, 3, pix \n" +
+                        "  print bwidth(b) \n"
+        );
+
+        // screenshot
+        examples.put("screenshot",
+                "class\n" +
+                        "  // Screenshot Example \n" +
+                        "  screenshot b \n" +
+                        "  num[] colours = copypixels(b, 0, 0, 400, 400)\n" +
+                        "  bitmap b2, 400, colours \n" +
+                        "  hold \n" +
+                        "func draw()\n" +
+                        "  drawbitmap b2, 0, MIDY, 400, 400\n"
+        );
+
+
+        // galaxian
+        examples.put("galaxian",
+                "class\n" +
+                        "  // Galaxian Example\n" +
+                        "  cls \n" +
+                        "  canvas BLACK\n" +
+                        "  num[] pix \n" +
+                        "  addPixels('BB   R   BB') \n" +
+                        "  addPixels('BBB RRR BBB') \n" +
+                        "  addPixels(' BBBRRRBBB ') \n" +
+                        "  addPixels('   RRRRR   ') \n" +
+                        "  addPixels('RRRRYRYRRRR') \n" +
+                        "  addPixels('R  RRRRR  R') \n" +
+                        "  addPixels('    R R    ') \n" +
+                        "  addPixels('    R R    ') \n" +
+                        "  // bitmap new-var, width, arr-pixel-colours \n" +
+                        "  bitmap b, 11, pix \n" +
+                        "  num y = 0 \n" +
+                        "  hold \n" +
+                        "func draw()\n" +
+                        "  // drawbitmap bitmap-num, left, top, width, height \n" +
+                        "  drawbitmap b, MIDX / 2 + y, y, 100, 100 \n" +
+                        "  y += 5 \n" +
+                        "func addPixels(str pixels)\n" +
+                        "  str[] arr = split(pixels, '') \n" +
+                        "  foreach c in arr\n" +
+                        "    if c == 'B' \n" +
+                        "      add pix, BLUE\n" +
+                        "    else if c == 'R' \n" +
+                        "      add pix, RED\n" +
+                        "    else if c == 'Y' \n" +
+                        "      add pix, YELLOW\n" +
+                        "    else\n" +
+                        "      add pix, 0\n"
+        );

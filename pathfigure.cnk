@@ -1,0 +1,111 @@
+        // figure
+        examples.put("figure",
+                "class\n" +
+                        "  // Make figure from path \n" +
+                        "  strokewidth 5 \n" +
+                        "  paint RED \n" +
+                        "  path p1,'M-50 0 L50 0 L50 60 Z' \n" +
+                        "  paint WHITE \n" +
+                        "  path p2,'R-50 -75 50 75 0' \n" +
+                        "  // figure new-var, path-num, path-num ... \n" +
+                        "  figure f, p1, p2 \n" +
+                        "  num x = 0 \n" +
+                        "  hold \n" +
+                        "func draw()\n" +
+                        "  movefigure f, x, MIDY \n" +
+                        "  if x < 400\n" +
+                        "    x = x + 5 \n"
+        );
+
+
+        // rotate
+        examples.put("rotate",
+                "class\n" +
+                        "  // Rotate Example\n" +
+                        "  paint RED \n" +
+                        "  path p1,'M-50 -50 L50 -50 L50 60 Z'\n" +
+                        "  paint BLUE \n" +
+                        "  style FILL \n" +
+                        "  path p2,'M-50 0 L50 0 L50 60 Z' \n" +
+                        "  figure f, p1, p2 \n" +
+                        "  movefigure f, MIDX, MIDY \n" +
+                        "  num ang=0 \n" +
+                        "  hold\n" +
+                        "func draw()\n" +
+                        "  // rotate figure-var, degrees, center-x, center-y \n" +
+                        "  rotate f, ang, 0, 0 \n" +
+                        "  ang = ang + 1 \n"
+        );
+
+        // scale
+        examples.put("scale",
+                "class\n" +
+                        "  // Scale Example\n" +
+                        "  style FILL \n" +
+                        "  paint BLUE \n" +
+                        "  path p,'M-50 -50 L50 -50 L50 60 Z'\n" +
+                        "  figure f, p \n" +
+                        "  movefigure f, MIDX, MIDY \n" +
+                        "  num size=1\n" +
+                        "  hold\n" +
+                        "func draw()\n" +
+                        "  // scale figure-var, scale-ratio-x, scale-ratio-y \n" +
+                        "  scale f, size, size\n" +
+                        "  size = size + 0.01\n"
+        );
+
+
+
+
+        // graph
+        examples.put("graph",
+                "class\n" +
+                        "  // Graph Example \n" +
+                        "  canvas false\n" +
+                        "  num[] sales = { 34, 45, 56, 67, 78, 89, 95, 70, 88, 100 } \n" +
+                        "  num[] colours = { RED, ORANGE, YELLOW, GREEN, CYAN, BEIGE, VIOLET, BROWN, LIGHTPINK, LIME } \n" +
+                        "  hold \n" +
+                        "func draw()\n" +
+                        "  for i  to 10 \n" +
+                        "    num width = SCREENW / 10 \n" +
+                        "    num x = width * i\n" +
+                        "    num bottom = SCREENH * 0.9 \n" +
+                        "    num y = bottom - bottom * sales[i] / 100 \n" +
+                        "    paint colours[i] \n" +
+                        "    style FILL\n" +
+                        "    rect x, y, x + width * 0.9, bottom \n" +
+                        "    paint WHITE\n" +
+                        "    textsize 30\n" +
+                        "    text str(2010 + i), x + width * 0.2, bottom * 1.05 \n"
+        );
+
+
+
+        // lander
+        examples.put("lander",
+                "class\n" +
+                        "  // Path Example \n" +
+                        "  paint GOLD\n" +
+                        "  style FILL\n" +
+                        "  path gold, 'U-26 0 -10 30 1 1 0 U10 0 26 30 1 1 0'\n" +
+                        "  paint YELLOW\n" +
+                        "  path yellow, 'U-10 0 10 30 1 1 0'\n" +
+                        "  paint GREY\n" +
+                        "  path grey, 'M-10 -5 L-20 -19 L-20 -5 L-14 0 L14 0 L20 -5 L20 -19 L10 -5 Z'\n" +
+                        "  paint LIGHTGREY\n" +
+                        "  path lgrey, 'M-10 -45 L-20 -35 L-23 -33 L-23 -21 L-20 -19 L-10 -5 L10 -5 L20 -19 L23 -21 L23 -33 L20 -35 L10 -45 Z'\n" +
+                        "  strokewidth 2\n" +
+                        "  style STROKE\n" +
+                        "  paint GOLD\n" +
+                        "  path legs, 'M-50 50 L-38 50 M-44 50 L-30 0 L30 0 L44 50 M38 50 L50 50 M0 0 L0 50 M-6 50 L6 50 M-40 30 L40 30'\n" +
+                        "  paint GREY\n" +
+                        "  path markings, 'M-20 -27 L-10 -35 L10 -35 L20 -27 M-10 -45 L-10 -7 M10 -45 L10 -7'\n" +
+                        "  figure f, gold, yellow, grey, lgrey, legs, markings\n" +
+                        "  movefigure f, MIDX, MIDY\n" +
+                        "  scale f, 1, 1\n" +
+                        "  num r\n" +
+                        "  hold\n" +
+                        "func draw()\n" +
+                        "  r++\n" +
+                        "  rotate f, r, 0, 0\n"
+        );

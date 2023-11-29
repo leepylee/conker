@@ -1,0 +1,94 @@
+func main()
+  num listItem
+  str[] fns = {'Linear', 'Radial', 'Sweep', 'Stroke', 'Reset'}
+  choose()
+  
+  // StrokeDash Example
+  // strokedash {pixels-on, pixels-off ...}, pixels-phase-offset
+  num[] arr = {100,10,50,10,25,5} 
+  if listItem == 3
+    strokedash arr, 10
+    strokewidth 10
+  end
+  path p,'M200 200 L600 250 L100 600 Z'
+end
+
+func draw()
+  str fn = 'draw' + fns[listItem];
+  sendevent(fn, '');
+  if inkey(0) == ' '
+    choose()
+  end
+end
+
+func choose()
+  str choices = join(fns, ';')
+  dialog 'Choose example', listItem, choices
+  //dialog 'Choose example', listItem, 'Linear Gradient;Radial Gradient;Sweep Gradient;Stroke Dash'
+end
+
+func drawLinear(str msg) event
+  // Linear Gradient Example
+  style FILL
+  // lgradient left, top, right, bottom, colour-from, colour-to , CLAMP / MIRROR / REPEAT
+  lgradient 200, 0, 400, 0, TOMATO, DARKRED, CLAMP
+  circle 300, 300, 100
+  lgradient 0, 420, 0, 520, LIME, DARKGREEN, MIRROR
+  circle 520, 520, 100
+  lgradient 640, 640, 740, 740, CYAN, DARKBLUE, REPEAT
+  circle 740,740,100
+  return ''
+end
+
+func drawStroke(str msg) event
+  // StrokeDash Example
+  drawpath p
+  num[] arr = {100,10,50,10,25,5} 
+  strokedash arr, 10
+  strokewidth 10
+  circle 500,500,100
+  return ''
+end  
+
+func drawRadial(str msg) event
+  // Radial Gradient Example
+  style FILL
+  // rgradient x, y, radius, from-color, to-color, CLAMP / MIRROR / REPEAT
+  rgradient 300, 300, 50, TOMATO, DARKRED, CLAMP
+  circle 300, 300, 100
+  rgradient 520, 520, 50, LIME, DARKGREEN,MIRROR
+  circle 520, 520, 100
+  rgradient 740, 740, 50, CYAN, DARKBLUE, REPEAT
+  circle 740, 740, 100
+  return ''
+end  
+
+func drawSweep(str msg) event
+  // Sweep Gradient Example
+  style FILL
+  // sgradient x, y, angle, from-color, to-color
+  sgradient 300, 300, 90, TOMATO, DARKRED
+  circle 300, 300, 100
+  sgradient 520, 520, 180, LIME, DARKGREEN
+  circle 520, 520, 100
+  sgradient 740, 740, 270, CYAN, DARKBLUE
+  circle 740, 740, 100
+  return ''
+end
+
+func drawReset(str msg) event
+  // Reset Example
+  paint RED 
+  style FILL 
+  circle MIDX, MIDY, 200
+  // Reset clears all paint settings back to defaults 
+  reset 
+  circle SCREENW / 4, MIDY, 200
+  return ''
+end
+  
+ 
+
+
+
+
