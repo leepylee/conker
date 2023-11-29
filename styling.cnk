@@ -3,19 +3,17 @@ func main()
   str[] fns = {'Linear', 'Radial', 'Sweep', 'Stroke', 'Reset'}
   choose()
   
-  // StrokeDash Example
   // strokedash {pixels-on, pixels-off ...}, pixels-phase-offset
-  num[] arr = {100,10,50,10,25,5} 
-  if listItem == 3
-    strokedash arr, 10
-    strokewidth 10
-  end
+  // this style is remembered in the path
+  num[] arr = {100,5} 
+  strokedash arr, 10
+  strokewidth 10
   path p,'M200 200 L600 250 L100 600 Z'
 end
 
 func draw()
-  str fn = 'draw' + fns[listItem];
-  sendevent(fn, '');
+  str fn = 'draw' + fns[listItem]
+  sendevent(fn, '')
   if inkey(0) == ' '
     choose()
   end
@@ -24,10 +22,9 @@ end
 func choose()
   str choices = join(fns, ';')
   dialog 'Choose example', listItem, choices
-  //dialog 'Choose example', listItem, 'Linear Gradient;Radial Gradient;Sweep Gradient;Stroke Dash'
 end
 
-func drawLinear(str msg) event
+func str drawLinear(str msg) event
   // Linear Gradient Example
   style FILL
   // lgradient left, top, right, bottom, colour-from, colour-to , CLAMP / MIRROR / REPEAT
@@ -40,17 +37,17 @@ func drawLinear(str msg) event
   return ''
 end
 
-func drawStroke(str msg) event
+func str drawStroke(str msg) event
   // StrokeDash Example
-  drawpath p
-  num[] arr = {100,10,50,10,25,5} 
-  strokedash arr, 10
+  num[] arr2 = {100,10,50,10,25,5} 
+  strokedash arr2, 10
   strokewidth 10
   circle 500,500,100
+  drawpath p, MIDX, MIDY // remembers original style
   return ''
 end  
 
-func drawRadial(str msg) event
+func str drawRadial(str msg) event
   // Radial Gradient Example
   style FILL
   // rgradient x, y, radius, from-color, to-color, CLAMP / MIRROR / REPEAT
@@ -63,7 +60,7 @@ func drawRadial(str msg) event
   return ''
 end  
 
-func drawSweep(str msg) event
+func str drawSweep(str msg) event
   // Sweep Gradient Example
   style FILL
   // sgradient x, y, angle, from-color, to-color
@@ -76,7 +73,7 @@ func drawSweep(str msg) event
   return ''
 end
 
-func drawReset(str msg) event
+func str drawReset(str msg) event
   // Reset Example
   paint RED 
   style FILL 
