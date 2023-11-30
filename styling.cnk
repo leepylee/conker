@@ -83,7 +83,7 @@ func str drawStroke(str msg) event
   strokejoin BEVEL
   poly(600, 400)
 
-  strokejoin METER
+  strokejoin ROUND
   poly(600, 650)
 
   return ''
