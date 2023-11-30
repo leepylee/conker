@@ -13,8 +13,8 @@ func main()
   num f 
   num c1
   num c2
-  num X
-  num y
+  num px
+  num py
 end
 
 func draw()
@@ -35,17 +35,18 @@ func str drawColour(str msg) event
   if f % 100 == 0
     c1 = randcol()
     c2 = randcol() 
-    x = rnd(SCREENW)
-    y = rnd(SCREENH)
+    px = rnd(SCREENW)
+    py = rnd(SCREENH)
   end 
   style FILL
   canvas c1
   paint c2
-  polygon x-100, y, x+100, y, x+150, y+100, x, y+200, x-150, y+100
+  poly(px, py)
+  return str
 end
 
 function num randc()
-  return col(rnd(255), rnd(255), rnd(255), rnd(255))
+  return col(255, rnd(255), rnd(255), rnd(255))
 end
 
 func str drawLinear(str msg) event
@@ -68,8 +69,29 @@ func str drawStroke(str msg) event
   strokewidth 10
   circle 500,500,100
   drawpath p, MIDX, MIDY // remembers original style
+
+  line 100,200,100,300
+
+  strokecap Round
+  line 200,200,200,300
+
+  strokecap SQUARE
+  line 300,200,300,300
+
+  poly(600, 150)
+
+  strokejoin BEVEL
+  poly(600, 400)
+
+  strokejoin METER
+  poly(600, 650)
+
   return ''
 end  
+
+func poly(num x, num y)
+  polygon x-100, y, x+100, y, x+150, y+125, x, y+200, x-150, y+125
+end
 
 func str drawRadial(str msg) event
   // Radial Gradient Example
