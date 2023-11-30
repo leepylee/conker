@@ -8,7 +8,7 @@ func main()
   num[] arr = {100,5} 
   strokedash arr, 10
   strokewidth 10
-  path p,'M200 200 L600 250 L100 600 Z'
+  path p,'M0 0 L400 50 L-100 400 Z'
 
   num f 
   num c1
@@ -42,10 +42,10 @@ func str drawColour(str msg) event
   canvas c1
   paint c2
   poly(px, py)
-  return str
+  return ''
 end
 
-function num randc()
+funct num randcol()
   return col(255, rnd(255), rnd(255), rnd(255))
 end
 
@@ -67,12 +67,12 @@ func str drawStroke(str msg) event
   num[] arr2 = {100,10,50,10,25,5} 
   strokedash arr2, 10
   strokewidth 10
-  circle 500,500,100
-  drawpath p, MIDX, MIDY // remembers original style
+  circle 500,1000,100
+  drawpath p, 500,1150 // remembers original style
 
   line 100,200,100,300
 
-  strokecap Round
+  strokecap ROUND
   line 200,200,200,300
 
   strokecap SQUARE
@@ -85,6 +85,12 @@ func str drawStroke(str msg) event
 
   strokejoin ROUND
   poly(600, 650)
+
+  style FILL
+  poly(900, 650)
+
+  style FILLSTROKE
+  poly(900, 650)
 
   return ''
 end  
