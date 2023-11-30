@@ -1,6 +1,6 @@
 func main()
   num listItem
-  str[] fns = {'Linear', 'Radial', 'Sweep', 'Stroke', 'Reset'}
+  str[] fns = {'Colour', 'Linear', 'Radial', 'Sweep', 'Stroke', 'Reset'}
   choose()
   
   // strokedash {pixels-on, pixels-off ...}, pixels-phase-offset
@@ -9,6 +9,12 @@ func main()
   strokedash arr, 10
   strokewidth 10
   path p,'M200 200 L600 250 L100 600 Z'
+
+  num f 
+  num c1
+  num c2
+  num X
+  num y
 end
 
 func draw()
@@ -17,11 +23,29 @@ func draw()
   if inkey(0) == ' '
     choose()
   end
+  f++
 end
 
 func choose()
   str choices = join(fns, ';')
   dialog 'Choose example', listItem, choices
+end
+
+func str drawColour(str msg) event
+  if f % 100 == 0
+    c1 = randcol()
+    c2 = randcol() 
+    x = rnd(SCREENW)
+    y = rnd(SCREENH)
+  end 
+  style FILL
+  canvas c1
+  paint c2
+  polygon x-100, y, x+100, y, x+150, y+100, x, y+200, x-150, y+100
+end
+
+function num randc()
+  return col(rnd(255), rnd(255), rnd(255), rnd(255))
 end
 
 func str drawLinear(str msg) event
