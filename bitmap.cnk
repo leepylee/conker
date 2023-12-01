@@ -9,6 +9,7 @@ func main()
 
   // canvasmap bitmap-num / screen
   canvasmap b
+  antialias false
   line 2,0,2,2 // RGW WGW RGW
   canvasmap screen
 
@@ -58,8 +59,8 @@ func main()
 end
 
 func draw()
-  drawbitmap b4, x, MIDY, 10, 10 
-  drawbitmap galaxian, x, y, 5, 5
+  drawbitmap b4, x, MIDY, 100, 100 
+  drawbitmap galaxian, x, x, 100, 100
   x++
 
   // Screenshot Example 
