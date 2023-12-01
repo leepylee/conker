@@ -1,26 +1,32 @@
 func main()
-  // Bitmap Example
-  num[] pix  = { RED, GREEN, BLUE, RED, GREEN, BLUE, WHITE, GREEN, BLUE } 
-  // bitmap new-var, width, arr-pixel-colours 
-  bitmap b, 3, pix 
-  
+  // bitmap new-var, width, height
+  bitmap b, 3, 3
+
+  num[] pix  = { RED, GREEN, BLUE, WHITE, GREEN, BLUE, RED, GREEN, BLUE } 
+
+  // pastepixels bitmap-num, x, y, width, pix-array
+  pastepixels b, 0, 0, 3, pix // paste to top     RGB WGB RGB
+
+  // canvasmap bitmap-num / screen
+  canvasmap b
+  line 2,0,2,2 // RGW WGW RGW
+  canvasmap screen
+
+  // copypixels(bitmap, x, y, width, height) 
+  num[] pix3 = copypixels(b, 0, 1, 3, 1) // copy WGW
+  pastepixels b, 0, 0, 3, pix3 // paste to top. result WGW WGW RGW
+
+  // flip new-bitmap, old-bitmap. result RGW WGW WGW
+  flip b3, b
+
+  // mirror new-bitmap, old-bitmap. final result WGR WGW WGW
+  mirror b4, b3
+
   // savebitmap bitmap-num, 'filename' 
   savebitmap b, 'test.bmp' 
 
   // loadbitmap bitmap-var, 'filename' 
   loadbitmap b2, 'test.bmp' 
-
-  // copypixels(bitmap, x, y, width, height) 
-  num[] pix2 = copypixels(b, 0, 2, 3, 1) // copy WGB
-
-  // pastepixels bitmap-num, x, y, width, pix-array
-  pastepixels b, 0, 0, 3, pix2 // paste to top. result RGB WGB WGB
-
-  // flip new-bitmap, old-bitmap. result WGB WGB RGB
-  flip b3, b
-
-  // mirror new-bitmap, old-bitmap. result BGW BGW BGR
-  mirror b4, b3
 
   // delete bitmap
   delbitmap b
@@ -38,14 +44,14 @@ func main()
    ' BBBRRRBBB ' + _
    '   RRRRR   ' + _
    'RRRRYRYRRRR' + _
-   'R  RRRRR  R' + _ 
+   'R  RRRRR  R' + _
    '    R R    ' + _
    '    R R    '
    dict num pal
    put pal, 'B', BLUE
    put pal, 'R', RED
    put pal, 'Y', YELLOW
-   picture galaxain, pixs, 11, pal
+   picture galaxian, pixs, 11, pal
 
   num x
   num f
@@ -53,7 +59,7 @@ end
 
 func draw()
   drawbitmap b4, x, MIDY, 10, 10 
-  drawbitmap galaxain, x, y, 5, 5
+  drawbitmap galaxian, x, y, 5, 5
   x++
 
   // Screenshot Example 
