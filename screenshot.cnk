@@ -1,0 +1,9 @@
+func main()
+  print 'Screenshot Example'
+end
+func draw()
+  if inkey(0) == 's' and !SCREENSHOT
+    screenshot b
+    savebitmap b, 'screen.bmp'
+  end
+end

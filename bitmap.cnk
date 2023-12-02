@@ -1,26 +1,26 @@
 func main()
   // bitmap new-var, width, height
-  bitmap b, 3, 3
+  bitmap b, 3, 4
 
-  num[] pix  = { RED, GREEN, BLUE, WHITE, GREEN, BLUE, RED, GREEN, BLUE } 
+  num[] pix  = { RED, GREEN, GREEN, RED, GREEN, GREEN, RED, GREEN, GREEN } 
 
   // pastepixels bitmap-num, x, y, width, pix-array
-  pastepixels b, 0, 0, 3, pix // paste to top     RGB WGB RGB
+  pastepixels b, 0, 0, 3, pix   
 
   // canvasmap bitmap-num / screen
   canvasmap b
   antialias false
-  line 2,0,2,2 // RGW WGW RGW
+  line 0,0,3,0 
   canvasmap screen
 
   // copypixels(bitmap, x, y, width, height) 
-  num[] pix3 = copypixels(b, 0, 1, 3, 1) // copy WGW
-  pastepixels b, 0, 0, 3, pix3 // paste to top. result WGW WGW RGW
-
-  // flip new-bitmap, old-bitmap. result RGW WGW WGW
+  num[] pix3 = copypixels(b, 0, 1, 3, 1) 
+  print pix3
+  
+  // flip new-bitmap, old-bitmap. 
   flip b3, b
 
-  // mirror new-bitmap, old-bitmap. final result WGR WGW WGW
+  // mirror new-bitmap, old-bitmap. 
   mirror b4, b3
 
   // savebitmap bitmap-num, 'filename' 
@@ -64,7 +64,7 @@ func draw()
   x++
 
   // Screenshot Example 
-  if f == 100
+  if f == 100 and !SCREENSHOT
     screenshot ssb 
     print 'screenshot height', bheight(ssb)
   end
