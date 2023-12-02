@@ -9,7 +9,7 @@ func draw()
   for i  to 10
     num width = SCREENW / 10
     num x = width * i
-    num bottom = SCREENH * 0.9
+    num bottom = SCREENH * 0.9 
     num y = bottom - bottom * sales[i] / 100
     paint colours[i]
     style FILL
