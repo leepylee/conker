@@ -24,10 +24,10 @@ func main()
   mirror b4, b3
 
   // savebitmap bitmap-num, 'filename' 
-  savebitmap b, 'test.bmp' 
+  savebitmap b, 'test.png' 
 
   // loadbitmap bitmap-var, 'filename' 
-  loadbitmap b2, 'test.bmp' 
+  loadbitmap b2, 'test.png' 
 
   // delete bitmap
   delbitmap b

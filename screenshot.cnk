@@ -1,10 +1,11 @@
 func main()
   print 'Screenshot Example'
+  print 'Press s to take a shot'
 end
 func draw()
   if inkey(0) == 's' and !SCREENSHOT
     screenshot b
-    savebitmap b, 'screen.bmp'
-    print 'Screenshot taken'
+    savebitmap b, 'screen.png'
+    print 'Shot taken'
   end
 end
