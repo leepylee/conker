@@ -1,6 +1,6 @@
 func main()
   // Graph Example
-  canvas false
+  console false
   num[] sales = { 34, 45, 56, 67, 78, 89, 95, 70, 88, 100 }
   num[] colours = { RED, ORANGE, YELLOW, GREEN, CYAN, BEIGE, VIOLET, BROWN, LIGHTPINK, LIME }
 end
@@ -16,6 +16,6 @@ func draw()
     rect x, y, x + width * 0.9, bottom
     paint WHITE
     textsize 30
-    text str(2010 + i), x + width * 0.2, bottom * 1.05
+    text x + width * 0.2, bottom * 1.05, string(2010 + i)
   end
 end

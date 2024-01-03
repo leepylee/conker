@@ -97,6 +97,7 @@ func main()
   num z
   while z < 5
     if z == 3
+      z++
       continue
     end
     print z
